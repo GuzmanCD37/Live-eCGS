@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>SIGNUP</title>
+    <link rel="icon" type="image/png"  href="circuit.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="pop-up.css">
+    <link rel="stylesheet" href="student_registration_new.css" />
+</head>
+
+<body class="place-center">
+    <section class="container" >
+        <div class=" forms" style="max-width: 550px;">
+            <span class="labels mb-lg">Register</span>
+
+            <div class="register-container mb-md">
+                <div class="personal-data">
+                    <span class="sub-labels">Teacher ID: </span>
+                    <input class="inputs mb-sm" type="text" id="teacher_id" placeholder="Enter Teacher ID">
+                    <span class="sub-labels">Name: </span>
+                    <input class="inputs mb-xs" type="text" id="first_name" placeholder="First Name">
+                    <input class="inputs mb-xs" type="text" id="middle_initial" placeholder="M.I. (Optional)">
+                    <input class="inputs mb-sm" type="text" id="last_name" placeholder="Last Name">
+                    <input class="inputs mb-sm" type="email" id="email_add" placeholder="Email Address">
+                    <span class="sub-labels">Password: </span>
+                    <input class="inputs" type="password" id="password" placeholder="Enter Password">
+                </div>
+            </div>
+            <button class="btn-solid full mb-lg" id="register_button" type="button">Register</button>
+            <p class="sub-labels txt-center">Already have an account? <b><a class="links" href="index.html">Log
+                        in</a></b>
+            </p>
+        </div>
+        </div>
+        <div id="myPopup" class="popup">
+            <div class="popup-content">
+                  <span id="pop-up-top">System Notice!</span>
+                  <br>
+                <p id="pop-up-message"></p>
+                <br>
+                <a id="closePopup">Close</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p id="copyright">
+            &copy; <script>document.write(new Date().getFullYear())</script> Develop By Antipolo HackathonTeam_2023
+        </p>
+    </footer>
+    <script type="module" src="teacher_registration.js"></script>
+</body>
+
+</html>

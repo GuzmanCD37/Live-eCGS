@@ -1,0 +1,60 @@
+@import url(general.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&family=Roboto&display=swap');
+
+
+.container {
+    /* outline: 1px solid; */
+    display: flex;
+    max-width: 1536px;
+    margin-left: 40px;
+    margin-right: auto;
+    padding-left: 1rem;
+}
+
+.float-right {
+    float: right;
+}
+
+
+.table-container {
+    
+    height: 80%;
+    margin: px;
+}
+
+
+.overflow {
+    overflow-y: scroll;
+}
+
+.teacher-wrapper, 
+.student-wrapper {
+    display: flex;
+    width: 100%;
+    
+}
+
+.main-panel {
+    width: 65%;
+    min-height: 800px;
+}
+
+.side-panel {
+    width: 35%;
+}
+
+
+
+.panel-container {
+    background-color: var(--clr-slate-50);
+    max-width: 1000px;
+    padding: 2rem 2rem 3rem 3rem;
+    box-shadow: var(--bx-shadow);
+    border-radius: var(--brd-radius);
+    margin: 10px;
+}
+
+.input-wrapper {
+    display: flex;
+}

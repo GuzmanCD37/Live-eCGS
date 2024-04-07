@@ -1,0 +1,50 @@
+@import url(general.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&family=Roboto&display=swap');
+
+
+.main-container {
+    /* outline: 1px solid; */
+    flex-direction: column;
+    max-width: 1536px;
+    
+}
+
+.float-right {
+    float: right;
+}
+
+#pendingContainer,
+#accountsContainer{
+    height: 700px;
+}
+
+.table-container {
+    
+    height: 430px;
+}
+
+
+.overflow {
+    overflow-y: scroll;
+}
+
+.panel-container {
+    background-color: var(--clr-slate-50);
+    max-width: 1550px;
+    padding: 2rem 2rem 3rem;
+    box-shadow: var(--bx-shadow);
+    border-radius: var(--brd-radius);
+    margin-top: 10px;  
+}
+
+.select-type {
+
+}
+
+.select-type button {
+    margin-left: 10px;
+}
+
+
+

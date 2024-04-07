@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ADMIN</title>
+    <link rel="icon" type="image/png"  href="circuit.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="general.css">
+    <link rel="stylesheet" type="text/css" href="admin_uploadsManager.css">
+    <link rel="stylesheet" type="text/css" href="sidebar.css">
+    <link rel="stylesheet" type="text/css" href="pop-up.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <nav>
+    <input type="checkbox" id="checkbox">
+      <label for="checkbox">
+        <i class="fas fa-bars" id="menu-btn"></i>
+      </label>
+
+    <div class="sidebar">
+      
+      <div class="menu">
+        <ul>
+          <li class="admin-li ">
+            <a href="index.html">
+              <i class="fas fa-home" title="Home"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="\Teacher\Teacher_Workplace.html">
+              <i class="fas fa-file-upload" title="Upload Grades"></i>
+              <span>Upload Grades</span>
+            </a>
+          </li>
+          <li class="admin-li">
+            <a href="admin_pendingaccounts.html">
+              <i class="fas fa-spinner" title="Pending Accounts"></i> 
+              <span>Pending Accounts</span>
+            </a>
+          </li>
+          <li class="admin-li">
+            <a href="admin_accountsManager.html">
+              <i class="far fa-user" title="Accounts Manager"></i> 
+              <span>Accounts Manager</span>
+            </a>
+          </li>
+          <li class="admin-li currentnav">
+            <a href="admin_uploadsManager.html">
+              <i class="fas fa-stream" title="Uploads Manager"></i> 
+              <span>Uploads Manager</span>
+            </a>
+          </li> 
+          <li class="superadmin hidden" style="margin-top: 10px;">
+            <a href="/Admin/superadmin_controls.html">
+              <i class="fas fa-unlock-alt" title="Super Admin Controls"></i> 
+              <span>S. Admin Controls</span>
+            </a>
+          </li> 
+          <li class="logout">
+            <a href="#" title="Logout" id="logoutLink">
+              <i class="fas fa-sign-out-alt"></i> 
+              <span>Logout</span>
+            </a>
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <main class="main-container">
+        <div class="header-wrapper select-type">
+          <h2><span><i class="fas fa-stream" title="Uploads Manager"></i> 
+                  Uploads Manager</span>
+          </h2>
+          <div class="table-controls-buttons">
+            <button class=" btn-solid full green" id="approveAll_btn" >Approve all<i class="fas fa-tasks" style="text-align: right; margin-left: 5px;"></i></button>
+            <button class="btn-solid full red" id="rejectAll_btn">Reject all<i class="fas fa-tasks" style="text-align: right; margin-left: 5px;"></i></button>
+          </div>
+        </div>  
+
+
+        <div class="table-sub-container" id="table-sub-container">
+            <table class="table" id="table">
+                <thead>
+                    <tr id="teacher-table">
+                        <th>TEACHER ID</th>
+                        <th>TEACHER NAME</th>
+                        <th style="width: 300px;">FILE NAME</th>
+                        <th>Email Address</th>
+                        <th>STATUS</th>
+                        <th style="width: 200px;">ACTION</th>
+                        <th style="width: 38px;"><button class="btn-ghost" id="selectAllFiles_btn" style="width: 10px; margin-right: -9px;" title="Select All">
+                          <i class="fas fa-tasks" style="text-align: center; margin-left: -12px; font-size: larger;"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="student-container"></tbody>
+            </table>
+        </div>
+
+        <div class="modal" id="myModal" style="display: none;">
+          <div class="modal-content">
+            <div class="modal-header">
+
+                <button class="close-modal"><i class="fa fa-window-close"></i></button>
+                <button class="btn-solid" id="rejectAllStudData_btn" style="">Reject All</button>
+            </div>
+            <div class="modal-table-container">
+              <div class="modal-table">
+
+              </div>
+            </div>                           
+          </div>
+        </div>
+        
+        
+        <div id="myPopup" class="popup">
+            <div class="popup-content">
+                <span id="pop-up-top">System Notice!</span>
+                <br>
+                <p id="pop-up-message"></p>
+                <br>
+                <a id="closePopup">Close</a>
+            </div>
+        </div>
+    </main>
+                    
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script type="module" src="admin_ui__previous.js"></script>
+<script src="general_admin.js"></script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Admin Panel</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href=".css">
+    <link rel="stylesheet" href="pop-up.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+</head>
+
+<body>
+  <nav>
+    <input type="checkbox" id="checkbox">
+      <label for="checkbox">
+        <i class="fas fa-bars" id="menu-btn"></i>
+      </label>
+
+    <div class="sidebar">
+      
+      <div class="menu">
+        <ul>
+          <li class="admin-li currentnav">
+            <a href="index.html">
+              <i class="fas fa-home" title="Home"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="\Teacher\Teacher_Workplace.html">
+              <i class="fas fa-file-upload" title="Upload Grades"></i>
+              <span>Upload Grades</span>
+            </a>
+          </li>
+          <li class="admin-li">
+            <a href="admin_pendingaccounts.html">
+              <i class="fas fa-spinner" title="Pending Accounts"></i> 
+              <span>Pending Accounts</span>
+            </a>
+          </li>
+          <li class="admin-li">
+            <a href="admin_accountsManager.html">
+              <i class="far fa-user" title="Accounts Manager"></i> 
+              <span>Accounts Manager</span>
+            </a>
+          </li>
+          <li class="admin-li">
+            <a href="admin_uploadsManager.html">
+              <i class="fas fa-stream" title="Uploads Manager"></i> 
+              <span>Uploads Manager</span>
+            </a>
+          </li> 
+          <li class="superadmin hidden" style="margin-top: 10px;">
+            <a href="superadmin_controls.html">
+              <i class="fas fa-unlock-alt" title="Super Admin Controls"></i> 
+              <span>S. Admin Controls</span>
+            </a>
+          </li> 
+          <li class="logout">
+            <a href="#" title="Logout" id="logoutLink">
+              <i class="fas fa-sign-out-alt"></i> 
+              <span>Logout</span>
+            </a>
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-container">
+        <h1 style="text-align: center; vertical-align:middle;  height: 100%;">Welcome Admin!</h1>
+  </main>
+</body>
+    <script src="general_admin.js"></script>
+</html>

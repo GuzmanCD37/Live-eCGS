@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Student Login Form</title>
+    <link rel="icon" type="image/png"  href="circuit.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="general.css" />
+    <link rel="stylesheet" href="pop-up.css">
+    <link rel="stylesheet" href="adjustcss-for-login.css">
+    <meta http-equiv="refresh" content="">
+    <script type="text/javascript">
+        var slowLoad = window.setTimeout(function () {
+            document.getElementById('pop-up-message').innerHTML="It's seems that the internet become slow, please be patient while getting the good staff";
+            document.getElementById('pop-up-message').style.textAlign = "center";
+            myPopup.classList.add("show");
+        }, 10000); // Set the timeout duration (e.g., 10 seconds)
+    
+        window.addEventListener('load', function () {
+            window.clearTimeout(slowLoad); // Cancel the timeout when the page finishes loading
+        }, false);
+    </script>
+</head>
+
+<body class="place-center">
+    <section class="container">
+        
+            <div class="forms student-login" id="for-student-login-formBackground">
+                
+                <div style="width: 500px; margin-top: 30px;">
+                    <div class="image-container"> 
+                    <span class="labels mb-lg" id="std-login-header">Student Login</span>
+                    <input class="inputs mb-sm" type="text" id="student_id" placeholder="Student ID">
+                    <input class="inputs mb-lg" type="password" id="password" placeholder="Password">
+                    <button class="login_btn" id="studLogin_button">Log in</button>
+                    <span class="sub-labels txt-center" id="check-account">Don't have an account? <a class="links"
+                            href="student_registration.html">Register!</a></span>
+                    </div>
+                </div>
+                <div class="image-background">
+                </div>
+            </div>
+        <div id="myPopup" class="popup">
+            <div class="popup-content">
+                  <span id="pop-up-top">System Notice!</span>
+                  <br>
+                <p id="pop-up-message"></p>
+                <br>
+                <a id="closePopup">Close</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p id="copyright">
+            &copy; <script>document.write(new Date().getFullYear())</script> Develop By Antipolo HackathonTeam_2023
+        </p>
+    </footer>
+
+    
+</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script type="module" src="login.js"></script>
+</html>

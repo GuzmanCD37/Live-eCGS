@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>UPDATE</title>
+    <link rel="icon" type="image/png"  href="circuit.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="student_registration.css" />
+</head>
+
+<body class="place-center">
+    <section class="container" >
+        <div class=" forms"  style="width: 400px;">
+            <span class="labels mb-lg">Update Teacher Account</span>
+
+            <div class="register-container mb-md">
+                <div class="personal-data">
+                    <span class="sub-labels">Teacher ID: </span>
+                    <input class="inputs mb-sm" type="text" id="teacher_id" placeholder="Enter Teacher ID to update">
+                    <button class="btn-solid full mb-lg" id="show_button">Show Details</button>
+ 
+                    <span class="sub-labels">Change Name: </span>
+                    <input class="inputs mb-xs" type="text" id="name" placeholder="Name">
+                    <span class="sub-labels">Change Password: </span>
+                    <input class="inputs" type="password" id="password" placeholder="Password">
+                    <input type="checkbox" id="showPassword" style="margin-top: 10px;">
+                    <label for="showPassword" style="font-size: smaller; vertical-align:2px;">show password </label>
+                    
+                </div>
+            </div>
+            <button class="btn-solid full mb-lg" id="update_button" style="margin-bottom: 10px;">Update</button>
+            <button class="btn-solid full mb-lg" id="delete_button" style="background: red;">Delete Account</button>
+            <button class="btn-solid full mb-lg" id="back_btn"> back</button>
+            </div>
+        </div>
+    </section>
+
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDFWV4k9-XmABgNGmleyXLTcuEn41rMHK8",
+    authDomain: "hackathon-26f12.firebaseapp.com",
+    databaseURL: "https://hackathon-26f12-default-rtdb.firebaseio.com",
+    projectId: "hackathon-26f12",
+    storageBucket: "hackathon-26f12.appspot.com",
+    messagingSenderId: "1071789540560",
+    appId: "1:1071789540560:web:6227da20f3a3a3a9ab0ad5"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+  import {
+    getFirestore, doc, getDoc, collection, addDoc, setDoc, updateDoc, deleteDoc, deleteField
+  }
+  from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
+  
+  const db = getFirestore();
+
+  var teacher_id = document.getElementById('teacher_id');
+  var name = document.getElementById('name');
+  var pass = document.getElementById('password');
+
+
+  async function ShowAccount(){
+    try {
+        if(teacher_id.value==""){
+        alert("Please Input Teacher ID first");
+    }else{
+        const ref = doc(db, "TEACHER_LIST",teacher_id.value);
+        const docsnap = await getDoc(ref);
+        if(docsnap.exists()){  
+        //assigning value from firestore to display
+        let user_name = docsnap.data().TeacherName;
+        let password = docsnap.data().password;
+            name.value = user_name
+            pass.value = password
+        } else {
+            alert('User not found')
+        }  
+    }
+    } catch (error) {
+        alert(error)
+    }
+ }
+
+ async function UpdateAccount(){
+    try {
+        if(teacher_id.value=="" || pass.value=="" || name.value=="" ){
+        alert("Please enter TeacherID and Show details first");
+        }else{
+            const ref = doc(db, "TEACHER_LIST",teacher_id.value);
+            await updateDoc(ref, {
+                TeacherName : name.value,
+                password : pass.value
+            });
+
+            alert('Success! Teacher Acount has been updated');
+            location.reload();
+        }
+    } catch (error) {
+        alert(error)
+    }
+ }
+
+ function togglePasswordVisibility() {
+      var passwordInput = document.getElementById("password");
+      var showPasswordCheckbox = document.getElementById("showPassword");
+
+      // Check if the checkbox is checked
+      if (passwordInput.type == 'password') {
+        // If checked, change the input type to "text" to show the password
+        passwordInput.type = "text";
+      } else {
+        // If unchecked, change the input type back to "password" to hide the password
+        passwordInput.type = "password";
+      }
+    }
+
+  async function DeleteAccount(){
+    try {
+        
+        if(teacher_id.value=="" || name.value==""){
+            alert("Please enter Teacher ID first and show details");
+        }else{
+            const ref = doc(db, "TEACHER_LIST",teacher_id.value);
+            const docsnap = await getDoc(ref);
+            if(docsnap.exists()){  
+                await deleteDoc(doc(db, "TEACHER_LIST", teacher_id.value));
+                alert('Delete Successful!');
+                location.reload();
+            } else {
+                alert('Cannot delete, User not found')
+            }  
+
+
+        }
+    } catch (error) {
+        alert(error)   
+    }
+ }
+ 
+        var back_btn=document.getElementById('back_btn');
+
+        var show_button = document.getElementById('show_button');
+        var showPassword = document.getElementById('showPassword');
+        var update_button = document.getElementById('update_button');
+        var delete_button = document.getElementById('delete_button');
+        
+function backteacher(){
+    window.open("admin_form.html");
+    window.close();
+}
+        
+        back_btn.addEventListener('click',backteacher);
+
+        show_button.addEventListener('click', ShowAccount);
+        showPassword.addEventListener('click', togglePasswordVisibility);
+        update_button.addEventListener('click', UpdateAccount);
+        delete_button.addEventListener('click', DeleteAccount);
+    </script>
+
+</body>
+
+</html>

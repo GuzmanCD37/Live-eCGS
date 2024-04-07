@@ -1,0 +1,35 @@
+#student-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto; 
+}
+th{
+    text-align: center;  
+}
+
+.table-container {
+    overflow-x: hidden;
+}
+
+.table-sub-container {
+
+    overflow-x: auto;
+}
+
+/* Scroll bars */
+.table-sub-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.table-sub-container::-webkit-scrollbar-track {
+    background-color: var(--clr-secondary-95);
+    border-radius: var(--brd-radius);
+}
+
+.table-sub-container::-webkit-scrollbar-thumb {
+    border-radius: var(--brd-radius);
+    background-color: var(--clr-secondary);
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Pending Accounts</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="pop-up.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="admin_pendingaccounts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+  <nav>
+    <input type="checkbox" id="checkbox">
+      <label for="checkbox">
+        <i class="fas fa-bars" id="menu-btn"></i>
+      </label>
+
+    <div class="sidebar">
+      
+      <div class="menu">
+        <ul>
+          <li class="admin-li ">
+            <a href="index.html">
+              <i class="fas fa-home" title="Home"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="\Teacher\Teacher_Workplace.html">
+              <i class="fas fa-file-upload" title="Upload Grades"></i>
+              <span>Upload Grades</span>
+            </a>
+          </li>
+          <li class="admin-li currentnav">
+            <a href="admin_pendingaccounts.html">
+              <i class="fas fa-spinner" title="Pending Accounts"></i> 
+              <span>Pending Accounts</span>
+            </a>
+          </li>
+          <li class="admin-li">
+            <a href="admin_accountsManager.html">
+              <i class="far fa-user" title="Accounts Manager"></i> 
+              <span>Accounts Manager</span>
+            </a>
+          </li>
+          <li class="admin-li">
+            <a href="admin_uploadsManager.html">
+              <i class="fas fa-stream" title="Uploads Manager"></i> 
+              <span>Uploads Manager</span>
+            </a>
+          </li> 
+          <li class="superadmin hidden" style="margin-top: 10px;">
+            <a href="/Admin/superadmin_controls.html">
+              <i class="fas fa-unlock-alt" title="Super Admin Controls"></i> 
+              <span>S. Admin Controls</span>
+            </a>
+          </li> 
+          <li class="logout">
+            <a href="#" title="Logout" id="logoutLink">
+              <i class="fas fa-sign-out-alt"></i> 
+              <span>Logout</span>
+            </a>
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+     
+  <main class="main-container">
+         <!-- select account type to show-->
+      <div class="header-wrapper select-type">
+        <h2><i class="fas fa-spinner" title="Pending Accounts"></i> 
+          <span>Pending Teacher Accounts</span> </h2>
+        <!--<button class="btn-solid " id="selectStudent_btn" >Student</button>
+        <button class="btn-solid " id="selectTeacher_btn" >Teacher</button>-->
+      </div>  
+
+
+        <div class="panel-container" id = "pendingStudents" style="display: none;">
+          <h3>Pending Student Accounts</h3>
+            <div class="table-container overflow">
+              <table id="pendingStudTable">
+                <thead >
+                  <tr>
+                    <th>TeacherID</th>
+                    <th style="width: 200px;">Name</th>
+                    <th>Password</th>
+                    
+                    <th style="width: 20px;">Approve</th>
+                  </tr>
+                </thead>
+                <tbody >
+                  <!-- Table rows will be dynamically added here -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="form-container">
+            <button class="btn-solid full mb-lg" id="selectAllStud_button" style="margin-bottom: 10px;">Select All</button>
+            <button class="btn-solid full mb-lg" id="approveStud_button" style="margin-bottom: 10px;">Approve</button>
+            <button class="btn-solid full mb-lg" id="rejectStud_button" style="margin-bottom: 10px; background: rgb(197, 0, 0);" >Reject</button>
+            </div>
+        </div>
+
+        <div class="panel-container" id="pendingTeachers" style="width: 100%;">
+         
+            <div class="controls-wrapper">
+              <div class="table-controls-buttons">
+                <button class=" btn-solid green" id="approveTchr_button" >Approve</button>
+                <button class="btn-solid red" id="rejectTchr_button">Reject</button>
+              </div>
+            </div>
+
+            <div class="table-container overflow">
+              <table id="pendingTchrTable">
+                <thead >
+                  <tr>
+                    <th style="width: 20%;">TeacherID</th>
+                    <th style="width: 30%;">Name</th>
+                    <th style="width: 20%;">Password</th>
+                    <th style="width: 26%;">CreatedAt</th>
+                    <th style="width: 5%;"><button class="btn-ghost" id="selectAllTchr_btn" style="width: 10px; margin-right: -9px;" title="Select All">
+                      <i class="fas fa-tasks" style="text-align: center; margin-left: -8px; font-size: larger;"></i>
+                      </button>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody >
+                  <!-- Table rows will be dynamically added here -->
+                </tbody>
+              </table>
+            </div>
+
+            
+        </div>
+      
+      </main>
+
+
+    <div id="myPopup" class="popup">
+      <div class="popup-content">
+            <span id="pop-up-top">System Notice!</span>
+            <br>
+          <p id="pop-up-message"></p>
+          <br>
+          <a id="closePopup">Close</a>
+      </div>
+    </div>
+
+
+</body>
+<script type="module" src="admin_pendingaccounts.js"></script>
+<script src="general_admin.js"></script>
+</html>

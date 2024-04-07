@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap');
+*{
+    box-sizing: border-box;
+}
+body{
+    background-image: url(https://e0.pxfuel.com/wallpapers/608/361/desktop-wallpaper-code-programming-dark-text-technologies-technology-notebook-laptop.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    height: 100vh;
+    width:auto;
+}
+
+
+.container {
+    /* outline: 1px solid; */
+    max-width: 1536px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&family=Roboto&display=swap');
+
+:root {
+    --clr-slate-950: #020617;
+    --clr-slate-900: #0f172a;
+    --clr-slate-800: #1e293b;
+    --clr-slate-700: #334155;
+    --clr-slate-600: #475569;
+    --clr-slate-400: #94a3b8;
+    --clr-slate-300: #cbd5e1;
+    --clr-slate-200: #e2e8f0;
+    --clr-slate-100: #f1f5f9;
+    --clr-slate-50: #f8fafc;
+
+    --bx-shadow: 0 0 5px rgba(0, 0, 0, 0.20);
+
+    --fnt-primary: 'Roboto', sans-serif;
+}
+
+table {
+    box-shadow: var(--bx-shadow);
+    border-collapse: collapse;
+    width: 100%;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+
+caption {
+    font-family: 'Roboto', sans-serif;
+    color: var(--clr-slate-600);
+    color: #9ca3af;
+    font-size: 16px;
+    text-align: left;
+    margin-bottom: .6rem;
+}
+.captionbutton-container{
+    display: flex;
+    justify-content: space-between;
+}
+#school_year,
+#select-year,
+span{
+    padding-left: 5px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    margin-right: 2px;
+}
+#select-year{
+    margin-left: 15px;
+    color: white;
+}
+#st-name{
+    display: inline-flex;
+    margin-left: 30px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+#stname{
+    margin-left: 10px;
+    display: inline-flex;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+#logout_btn{
+    text-align: center;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0)  ;
+    padding: 4px;
+    border: 1px solid white;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 4px;
+    color: white;
+    transition: all 600ms ease;
+}
+#logout_btn:hover{
+    background-color: red;
+}
+#table,
+#table2,
+#table3{
+    display: none;
+}
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    
+    
+}
+.table td,
+.table th{
+    padding: 8px;
+}
+.table th{
+    color: black;
+}
+.table th:hover{
+    color: darkblue;
+}
+
+#table-design{
+    margin-top: 5px;
+    height: 80vh;
+    overflow-y: auto;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+th,
+tr{
+    background-color: rgba(218, 218, 218, 0.288);
+    color: white;
+}
+tr {
+    transition: all 600ms ease;
+}
+
+tr:hover,
+th:hover {
+    background-color: var(--clr-slate-200);
+    color: black;
+}
+th {
+    text-align: center;
+    padding: 8px;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    font-size: 18px;
+}
+td{
+    text-align: center;
+    padding: 8px;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    font-size: 15px;
+}
+footer{
+    position: sticky;
+    bottom: 0;
+    margin-top: 20px;
+}
+.mt-md {
+    margin-top: 40px;
+}
+footer p{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    color: white; 
+}
+@media (max-width: 1000px) {
+    .user-info{
+        display: block;
+    }
+    #st-name, span{
+        margin: 0px;
+        padding: 0px;
+    }
+    #select-year{
+        display: block;
+        position: relative;
+        margin: 0px;
+    }
+    .table-design{
+        overflow-x: auto;
+    }
+    .table{
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+}
+@media (max-width: 700px) {
+   .captionbutton-container{
+     display: block;
+     width:auto;
+     justify-content: space-between;
+    }
+    .container{
+      height: 100vh;
+    }
+    #st-name, span{
+        margin: 0px;
+        padding: 0px;
+    }
+    #select-year{
+        display: block;
+        position: relative;
+        margin: 0px;
+    }
+    #table-design{
+        margin-top:10px;
+        overflow-x: auto;
+    }
+    .table{
+        display: block;
+        max-height: 100vh;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    #myPopup{
+      margin-top:110px;
+    }
+    .mt-md {
+        margin-top: 50px;
+    }
+    footer{
+       bottom: 20px;
+   }
+}
+@media (max-width: 480px){
+    .container{
+        height: 100vh;
+        margin-bottom: 20px;
+    }
+    .mt-md {
+        margin-top: 20px;
+    }
+    #table-design{
+        margin-top: 10px;
+        height: 75vh;
+        overflow-x: auto;
+        padding: 10px;
+    }
+    .table{
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    footer{
+        bottom: 0px;
+    }
+}

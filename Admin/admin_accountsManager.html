@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Accounts Manager</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="pop-up.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="admin_accountsManager.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+  <nav>
+    <input type="checkbox" id="checkbox">
+      <label for="checkbox">
+        <i class="fas fa-bars" id="menu-btn"></i>
+      </label>
+
+    <div class="sidebar">
+      
+      <div class="menu">
+        <ul>
+          <li class="admin-li ">
+            <a href="index.html">
+              <i class="fas fa-home" title="Home"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="\Teacher\Teacher_Workplace.html">
+              <i class="fas fa-file-upload" title="Upload Grades"></i>
+              <span>Upload Grades</span>
+            </a>
+          </li>
+          <li class="admin-li">
+            <a href="admin_pendingaccounts.html">
+              <i class="fas fa-spinner" title="Pending Accounts"></i> 
+              <span>Pending Accounts</span>
+            </a>
+          </li>
+          <li class="admin-li currentnav">
+            <a href="admin_accountsManager.html">
+              <i class="far fa-user" title="Accounts Manager"></i> 
+              <span>Accounts Manager</span>
+            </a>
+          </li>
+          <li class="admin-li">
+            <a href="admin_uploadsManager.html">
+              <i class="fas fa-stream" title="Uploads Manager"></i> 
+              <span>Uploads Manager</span>
+            </a>
+          </li> 
+          <li class="superadmin hidden" style="margin-top: 10px;">
+            <a href="\Admin\superadmin_controls.html">
+              <i class="fas fa-unlock-alt" title="Super Admin Controls"></i> 
+              <span>S. Admin Controls</span>
+            </a>
+          </li> 
+          <li class="logout">
+            <a href="#" title="Logout" id="logoutLink">
+              <i class="fas fa-sign-out-alt"></i> 
+              <span>Logout</span>
+            </a>
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-container" >
+
+
+      <section class="student-wrapper" style="display: none;">
+        <div class="main-panel panel-container" id = "studentsContainer">
+          <h3>Student Accounts</h3>
+            <div class="table-container overflow">
+              <table id="studAccTable">
+                <thead>
+                  <tr>
+                    <th style="width: 60px;">StudentID</th>
+                    <th style="width: 200px;">Name</th>
+                    <th>Password</th>
+                    <th>CreatedAt</th>
+                    <th style="width: 20px;"><input type="checkbox" id="selectAllTchr" ></th>
+                  </tr>
+                </thead>
+                <tbody id="student-table-body">
+                  <!-- Table rows will be dynamically added here -->
+                </tbody>
+              </table>
+            </div>
+
+          
+        </div>
+
+        <div class="side-panel panel-container">
+          
+          <div class="form-container">
+            <button class="btn-solid full mb-lg" id="selectAllAcc_button" style="margin-bottom: 10px;">Select All</button>
+            <button class="btn-solid full mb-lg" id="delete_button" style="margin-bottom: 10px; background: rgb(197, 0, 0);" >Delete</button>
+          </div>
+          <br>
+          <span class="labels mb-lg">Update User</span>
+          
+          <div class="form-container">
+            <span class="sub-labels">User ID: </span>
+            <span class="input-wrapper">
+            <input class="inputs" type="text" id="student-id" placeholder="Student ID">
+            </span>
+
+            <span class="sub-labels">Name: </span>
+            <span class="input-wrapper">
+              <input class="inputs" type="text" id="name" placeholder="Name" disabled>
+              <button class="btn-ghost" id="edit"><i class="far fa-edit"></i></button>
+            </span>
+            
+            <span class="sub-labels">Password: </span>
+            <span class="input-wrapper">
+              <input class="inputs" type="password" id="password" placeholder="Password">
+              <button class="btn-ghost" id="update_button"><i class="far fa-edit"></i></button>
+            </span>
+            
+            <div class="form-controls">
+              <button class="btn-solid full mb-lg" id="update_button" style="margin-bottom: 10px;">Update</button>
+              <button class="btn-solid full mb-lg" id="delete_button" style="background: red;">Delete Account</button>
+            </div>
+          </div>   
+        </div>
+      </section> <!--student wrapper-->
+
+      <section class="teacher-wrapper">
+        <div class="main-panel panel-container" id = "teachersContainer">
+          <h3>Teacher Accounts</h3>
+          <br>
+          <div class="controls-wrapper">
+            <div class="table-controls-buttons">
+              <p id="selectCount">0 selected</p>
+              <button class="btn-solid red" id="deleteAllTchr_btn" >Delete All Selected</button>
+            </div>
+          </div>
+            <div class="table-container overflow">
+              <table  id="tchrAccTable" >
+                <thead>
+                  <tr>
+                    <th style="width: 60px;">TeacherID</th>
+                    <th style="width: 200px;">Name</th>
+                    <th>Password</th>
+                    <th>CreatedAt</th>
+                    <th style="width: 38px;"><button class="btn-ghost" id="selectAllTchr_btn" style="width: 10px; margin-right: -9px;" title="Select All">
+                            <i class="fas fa-tasks" style="text-align: center; margin-left: -8px; font-size: larger;"></i>
+                        </button>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Table rows will be dynamically added here -->
+                </tbody>
+              </table>
+            </div>
+        </div>
+        <div class="side-panel panel-container">
+          
+          
+          <br>
+          <span class="labels mb-lg">Update User</span>
+          
+          <div class="form-container">
+            <span class="sub-labels">User ID: </span>
+            <span class="input-wrapper">
+            <input class="inputs" type="text" id="teacher-id" placeholder="Teacher ID" disabled>
+            </span>
+
+            <span class="sub-labels">Name: </span>
+            <span class="input-wrapper">
+              <input class="inputs" type="text" id="teacher-name" placeholder="Name" disabled>
+              <button class="btn-ghost" id="editTchrName" onclick="toggleInput('teacher-name')"><i class="far fa-edit"></i></button>
+            </span>
+            
+            <span class="sub-labels">Password: </span>
+            <span class="input-wrapper">
+              <input class="inputs" type="text" id="teacher-password" placeholder="Password" disabled>
+              <button class="btn-ghost" id="editTchrPass" onclick="toggleInput('teacher-password')"><i class="far fa-edit"></i></button>
+              </input>
+            </span>
+            
+            <div class="form-controls">
+              <button class="btn-solid full mb-lg" id="updateTchr_button" style="margin-bottom: 10px;">Update</button>
+              <button class="btn-solid full mb-lg" id="deleteTchr_button" style="background: red;">Delete Account</button>
+            </div>
+          </div>   
+        </div>
+
+      </section><!--teacher wrapper-->
+  </main>
+
+  <div id="myPopup" class="popup">
+    <div class="popup-content">
+          <span id="pop-up-top">System Notice!</span>
+          <br>
+        <p id="pop-up-message"></p>
+        <br>
+        <a id="closePopup">Close</a>
+    </div>
+  </div>
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script type="module" src="admin_accountsManager.js"></script>
+<script src="general_admin.js"></script>
+
+<script>
+  //toggle input for edit
+  function toggleInput(inputId) {
+    var input = document.getElementById(inputId);
+    input.disabled = !input.disabled;
+    input.style.pointerEvents = input.disabled ? 'none' : 'auto';
+  }
+</script>
+</html>

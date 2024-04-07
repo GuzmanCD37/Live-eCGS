@@ -1,0 +1,110 @@
+@import url(general.css);
+
+
+
+* {
+    color: var(--clr-primary);
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    color: rgb(26, 24, 24);
+}
+
+.sidebar {
+    z-index: 1000;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width:55px;
+    height: 100%;
+    background: var(--clr-slate-50);
+    transition: all .2s;
+    transition-delay: .2s;
+    overflow: hidden;
+
+}
+
+.sidebar:hover{
+    width: 230px;
+    
+
+}
+
+.menu {
+    height: 88%;
+    padding-top: 80px;
+    transition: .5s;
+}
+
+.menu li a {
+    height: 88%;
+    width: 100%;
+    line-height: 50px;
+    color: white;
+    padding: 5px;
+}
+
+.menu a span {
+    overflow: hidden;
+    text-wrap:nowrap;
+    
+}
+
+.menu a {
+    display: flex;
+    text-decoration: none;
+    gap: 20px;
+    align-items: center;
+
+}
+
+.menu li a:hover{
+    background-image: var(--clr-gradient-2);
+}
+
+.menu i {
+    margin-left: 10px;
+    text-align: center;
+    font-size: x-large;
+}
+
+.currentnav {
+    border: 2px solid var(--clr-primary);
+}
+
+#checkbox {
+    display: none;
+}
+
+label #menu-btn {
+    color: white;
+    position: fixed;
+    font-size: x-large;
+    border: 2px solid white;
+    border-radius: 4px;
+    padding: 4px;
+    cursor: pointer;
+    z-index: 1001;
+    margin: 10px;
+    
+}
+
+#checkbox:checked ~ .sidebar {
+    width: 230px;
+}
+
+#checkbox:checked ~ .sidebar i {
+    
+}
+
+.logout {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+}
+

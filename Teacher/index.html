@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>LOGIN</title>
+    <link rel="icon" type="image/png"  href="circuit.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="\Admin\general.css" />
+    <link rel="stylesheet" href="pop-up.css">
+    <meta http-equiv="refresh" content="">
+</head>
+
+<body class="place-center">
+    <section class="container">
+        <div class="forms teacher-login" style="height: 350px;">
+            <span class="labels mb-lg">Teacher Login</span>
+            <input class="inputs mb-sm" type="text" id="teacher_id" placeholder="Teacher ID">
+            <input class="inputs mb-lg" type="password" id="password" placeholder="Password">
+            <button class="btn-solid full mb-lg" id="teacher_btn">Log in</button>
+             <span class="sub-labels txt-center">Do you have account? <b><a class="links" href="teacher_registration.html">
+                        Register</a></b>
+             </span>
+        </div>
+        <div id="myPopup" class="popup">
+          <div class="popup-content">
+                <span id="pop-up-top">System Notice!</span>
+                <br>
+              <p id="pop-up-message"></p>
+              <br>
+              <a id="closePopup">Close</a>
+          </div>
+      </div>
+    </section>
+    <footer>
+        <p id="copyright">
+            &copy; <script>document.write(new Date().getFullYear())</script> Develop By Antipolo HackathonTeam_2023
+        </p>
+    </footer>
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>
