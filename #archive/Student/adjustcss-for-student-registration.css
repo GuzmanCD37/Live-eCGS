@@ -1,0 +1,196 @@
+body{
+    background-image: url(https://e0.pxfuel.com/wallpapers/608/361/desktop-wallpaper-code-programming-dark-text-technologies-technology-notebook-laptop.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+.registrationbtn-container{
+    display: flex;
+    justify-content: space-between;
+    background-color:transparent;
+    border: 1px solid white;
+    text-align: center;
+    padding: 10px 5px;
+    border-radius:6px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    
+}
+.forms{
+    padding:5px 25px;
+    width: 700px;
+    max-width: 60vw;
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid white;
+}
+#personal-data-container,
+#register_button,
+#personal-datawarning,
+#verif-form-row2,
+#back_button,
+#next_button,
+#sub2_verification,
+#sub3_verification,
+#sub4_verification,
+#sub5_verification,
+#sub6_verification,
+#sub7_verification,
+#sub8_verification,
+#sub9_verification,
+#sub10_verification,
+#sub11_verification,
+#sub12_verification,
+#verified2,
+#verified3,
+#verified4,
+#verified5,
+#verified6,
+#verified7,
+#verified8,
+#verified9,
+#verified10,
+#verified11,
+#verified12
+{  
+    display: none;
+}
+#personal-datawarning,
+#subjects-warning{
+    font-size: 14px; 
+    color: red; 
+    font-weight: 500; 
+    text-align: center;
+}
+#student-id{
+    text-align: center; 
+    width: 120px; 
+    margin-bottom:0px; 
+    margin-right: 5px;
+    background-color: transparent; 
+    color: white;
+}
+#register-container{
+    display: block;
+}
+.verif-form-row1{
+    max-width: 550px;
+    min-width: 275px;
+}
+textarea{
+    width:170px;
+    color: white;
+}
+.subjects{
+    border: 1px solid white;
+    background-color:transparent;
+    padding: 10px;
+}
+.subject-inputs{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.subjects-image{
+    background-image: url(https://e1.pxfuel.com/desktop-wallpaper/891/845/desktop-wallpaper-programming-for-your-or-mobile-screen-and-easy-to-anime-programming.jpg);
+    background-repeat: no-repeat;
+    background-size:60dvw;
+    background-position: center,center;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 10px;
+}
+.personal-data-container{
+    display: flex;
+    justify-content: space-between;
+}
+.personal-data span{
+    color: white;
+}
+.personal-data input{
+    background-color:transparent;
+    color: white;
+}
+.personal-data-image{
+    width: 100%;
+    height: auto;
+    border: 1px solid white;
+    margin-left: 10px;
+    background-image: url(https://e0.pxfuel.com/wallpapers/910/30/desktop-wallpaper-cute-cat-cute-cat-weird-cat.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    overflow: hidden;
+}
+#warningcheckaccount{
+    border:1px solid white ; 
+    border-radius: 5px; 
+    margin-top: -10px; 
+    padding: 10px 5px; 
+    margin-bottom: 10px;
+}
+footer{
+    bottom: 10px;
+    position: fixed;
+    color: white;
+}
+@media (max-width:700px) {
+    .registrationbtn-container{
+      display: block;
+    }
+    .forms{
+        max-width: 100%;
+        overflow: scroll;
+    }
+    #sub-label{
+        margin-top: 5px;
+        margin-left: 10px;
+    }
+    .verif-form-row1{
+        width: 300px;
+        margin-left: 10px;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        width: 100vw;  
+    }
+    .subject-inputs{
+        display: block;
+        
+    }
+    #copyright{
+        margin-top: -100px;
+    }
+   .personal-data-image{
+        display: none;
+   }
+}
+@media (max-width:375px) {
+    .registrationbtn-container{
+        display: block;
+    }
+    #student-id{
+        padding: 0px;
+        margin: 0px;
+        margin-top: 3px;
+        width: 110px;
+        height: 10px;
+    }
+    #verif-form-row1{
+        width: 80px;
+        margin-left: 10px;
+    }
+    #verif-form-row2{
+        width: 80px;
+        margin-left: 10px;
+    }
+    #verif-form-row2 input{
+        width: 100px;
+    }
+}

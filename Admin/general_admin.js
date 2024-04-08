@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.removeItem('accountType');
         localStorage.removeItem('teacher_name');
         localStorage.removeItem('teacher_id');
-        localStorage.removeItem('adminId');
+        localStorage.removeItem('adminID');
         
         // Redirect the user to a login page or a page confirming they've logged out
         window.location.href = '/Teacher/index.html'; // Redirect to the login page

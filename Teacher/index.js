@@ -36,7 +36,6 @@ document.getElementById('teacher_btn').addEventListener('click', async () => {
     const admindocsnap = await getDoc(adminRef);
 
     if(tchrdocsnap.exists()){
-      alert('teacher')
       var tchrpass = tchrdocsnap.data().password;
       
       //if the value from the variable pass is equal to the value of upass that the user input/    
@@ -61,7 +60,6 @@ document.getElementById('teacher_btn').addEventListener('click', async () => {
         upass.value="";
       }
     }else if(admindocsnap.exists()){
-      alert('admin')
       var adminpass = admindocsnap.data().password;
       if(adminpass == upass.value){
         //assigning data from firestore to variable

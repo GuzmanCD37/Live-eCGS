@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>ADMIN</title>
+    <link rel="icon" type="image/png"  href="circuit.png">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="student_registration.css" />
+</head>
+
+<body class="place-center">
+    <section class="container">
+        <div class=" forms">
+            <span class="labels mb-lg" style="text-align: center;">Update Account</span>
+            <button class="btn-solid full mb-lg" id="teacher_button">Teacher</button>
+            <button class="btn-solid full mb-lg" id="student_button">Student</button>
+            <button class="btn-solid full mb-lg" id="back_button">Back</button>
+        </div>
+    </section>
+    <script>
+        var teacher_button=document.getElementById('teacher_button');
+        var student_button=document.getElementById('student_button');
+        var back_button=document.getElementById('back_button');
+        function teacherbtn(){
+            window.open("teacher_update.html");
+            window.close();
+        }
+        function studentbtn(){
+            window.open("student_update.html");
+            window.close();
+        }
+        function backbtn(){
+            window.open("index.html");
+            window.close();
+        }
+        teacher_button.addEventListener('click', teacherbtn);
+        student_button.addEventListener('click', studentbtn);
+        back_button.addEventListener('click', backbtn);
+    </script>
+</body>
+
+</html>

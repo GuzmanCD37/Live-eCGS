@@ -20,18 +20,19 @@ const firebaseConfig = {
   
   const db = getFirestore();
 
-  var teacher_id = document.getElementById('teacher_id');
-  var first_name = document.getElementById('first_name');
-  var middle_initial = document.getElementById('middle_initial');
-  var last_name = document.getElementById('last_name');
-  var pass = document.getElementById('password');
-  var register_button = document.getElementById('register_button');
+  const teacher_id = document.getElementById('teacher_id');
+  const first_name = document.getElementById('first_name');
+  const middle_initial = document.getElementById('middle_initial');
+  const last_name = document.getElementById('last_name');
+  const pass = document.getElementById('password');
+  const email_add = document.getElementById('email_add');
+  const register_button = document.getElementById('register_button');
 
 async function SaveRegistrationFrom(){
     
         
               //If teacherID still not in database create as new user
-            if(teacher_id.value=="" || pass.value=="" || first_name.value=="" || last_name.value==""){
+            if(teacher_id.value=="" || pass.value=="" || first_name.value=="" || last_name.value=="" || email_add.value == ""){
                 document.getElementById('pop-up-message').innerHTML="Please Fill up all the requirements";
                     document.getElementById('pop-up-message').style.textAlign = "center";
                     myPopup.classList.add("show");
@@ -48,6 +49,7 @@ async function SaveRegistrationFrom(){
                     middle_initial.value="";
                     last_name.value="";
                     pass.value="";
+                    email_add.value = "";
                     }
             
                 else{
@@ -58,6 +60,7 @@ async function SaveRegistrationFrom(){
                     TeacherID : teacher_id.value,
                     TeacherName : first_name.value + " " + middle_initial.value +" "+ last_name.value,
                     password : pass.value,
+                    Email_Address : email_add.value,
                     subjects : listsub,
                     accountType : 'teacher',
                     createdAt: new Date().toLocaleString()
@@ -71,6 +74,11 @@ async function SaveRegistrationFrom(){
                     middle_initial.value="";
                     last_name.value="";
                     pass.value="";
+                    email_add.value = "";
+                    setTimeout(function() {
+                      window.open('index.html');
+                      window.open('','_self').close();
+                    }, 5000);
             }
             
         }

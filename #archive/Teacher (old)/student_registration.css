@@ -1,0 +1,36 @@
+@import url(general.css);
+
+.register-container {
+    display: flex;
+    gap: var(--sm);
+}
+
+.register-container>div {
+    flex: 1;
+}
+
+.personal-data {
+    padding: var(--sm) 0;
+}
+
+.subjects {
+    padding: var(--sm) var(--sm) 0;
+    border-radius: var(--brd-radius);
+    background-color: var(--clr-slate-100);
+}
+
+/* md */
+@media (max-width: 768px) {
+    .register-container {
+        flex-direction: column;
+        gap: var(--lg);
+    }
+
+    .register-container>div {
+        padding: 0;
+    }
+
+    .subjects {
+        background-color: none;
+    }
+}

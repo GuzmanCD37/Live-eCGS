@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Accounts Manager</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="pop-up.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="admin_accountsManager.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+  <nav>
+    <input type="checkbox" id="checkbox">
+      <label for="checkbox">
+        <i class="fas fa-bars" id="menu-btn"></i>
+      </label>
+
+    <div class="sidebar">
+      
+      <div class="menu">
+        <ul>
+          <li>
+            <a href="index.html">
+              <i class="fas fa-home" title="Home"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="admin_pendingaccounts.html">
+              <i class="fas fa-spinner" title="Pending Accounts"></i> 
+              <span>Pending Accounts</span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="far fa-user" title="Accounts Manager"></i> 
+              <span>Accounts Manager</span>
+            </a>
+          </li>
+          <li class="currentnav">
+            <a href="admin_uploadsManager.html">
+              <i class="fas fa-stream" title="Uploads Manager"></i> 
+              <span>Uploads Manager</span>
+            </a>
+          </li> 
+          <li class="superadmin" style="margin-top: 10px;">
+            <a href="superadmin_controls.html">
+              <i class="fas fa-unlock-alt" title="Super Admin Controls"></i> 
+              <span>S. Admin Controls</span>
+            </a>
+          </li> 
+          <li class="logout">
+            <a href="#" title="Logout">
+              <i class="fas fa-sign-out-alt"></i> 
+              <span>Logout</span>
+            </a>
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" style="margin-left: 0px;">
+      
+    <div class="table-sub-container" id="table-sub-container">
+      <table class="table" id="table2">
+          <thead>
+              <tr id="teacher-table">
+                  <th>TEACHER ID</th>
+                  <th>TEACHER NAME</th>
+                  <th>FILE NAME</th>
+                  <th>Email Address</th>
+                  <th>STATUS</th>
+                  <th>ACTION</th>
+              </tr>
+          </thead>
+          <tbody id="student-container"></tbody>
+      </table>
+  </div>
+  <div class="table-sub-container" id="student-data" style="display: none;">
+     
+      <table class="table" id="table">
+              <tr id="student-table">
+                  <th>STUDENT ID</th>
+                  <th>STUDENT NAME</th>
+                  <th>ACADEMIC YEAR</th>
+                  <th>TRIMESTER</th>
+                  <th>SECTION</th>
+                  <th>DAY</th>
+                  <th>TIME</th>
+                  <th>COURSE CODE</th>
+                  <th>COURSE DESCRIPTION</th>
+                  <th>EMAIL</th>
+                  <th>PRELIM GRADE</th>
+                  <th>MIDTERM GRADE</th>
+                  <th>FINAL GRADE</th>
+                  <th>REMARK</th>
+                  <th>CREDIT UNIT</th>
+                  <th>FACULTY NAME</th>
+                  <th>ECR NAME</th>
+                  <th>ACTION</th>
+              </tr>
+              
+          <tbody id="student-data-list"></tbody>
+      </table>
+  </div>
+
+    <div id="myPopup" class="popup">
+      <div class="popup-content">
+            <span id="pop-up-top">System Notice!</span>
+            <br>
+          <p id="pop-up-message"></p>
+          <br>
+          <a id="closePopup">Close</a>
+      </div>
+    </div>
+  </main>
+    
+
+    <script type="module" src="admin_accountsManager.js"></script>
+
+</body>
+
+</html>

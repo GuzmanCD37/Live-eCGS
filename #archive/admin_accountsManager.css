@@ -1,0 +1,70 @@
+@import url(general.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&family=Roboto&display=swap');
+
+
+.container {
+    /* outline: 1px solid; */
+    display: flex;
+    
+    max-width: 1536px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+}
+
+.float-right {
+    float: right;
+}
+
+#pendingContainer,
+#accountsContainer{
+    height: 700px;
+}
+
+.table-container {
+    
+    height: 430px;
+    margin: 20px;
+}
+
+
+
+.overflow {
+    overflow-y: scroll;
+}
+
+.panel-container {
+    background-color: var(--clr-slate-50);
+    max-width: 550px;
+    padding: 2rem 2rem 3rem;
+    box-shadow: var(--bx-shadow);
+    border-radius: var(--brd-radius);
+    margin: 10px;
+    height: 600px;
+   
+}
+
+
+#pendingAccTable,
+#accountsTable {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #pendingAccTable th, #pendingAccTable td,
+  #accountsTable th, #accountsTable td
+   {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+  }
+
+ 
+
+  /* Fixed header */
+  #pendingAccTable thead,
+  #accountsTable thead{
+    position: sticky;
+    top: 0;
+
+  }

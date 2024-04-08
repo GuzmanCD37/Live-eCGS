@@ -21,7 +21,7 @@ const firebaseConfig = {
   const db = firebase.firestore();
   const client = getFirestore();
   let count = 0;
-  var stdnum, stdname , academic, trimester , section, day , time, cc , cd, prelim , midterm, finals
+  let stdnum, stdname , academic, trimester , section, day , time, cc , cd, prelim , midterm, finals
     , remark, cu,fn, en, email,ylevel ;
 
  
@@ -34,28 +34,12 @@ const firebaseConfig = {
     { var t = Email.createCORSRequest("GET", e); t.onload = function () { var e = t.responseText; null != n && n(e) }, t.send() }, createCORSRequest: 
     function (e, n) { var t = new XMLHttpRequest; return "withCredentials" in t ? t.open(e, n, !0) : "undefined" != typeof XDomainRequest ? (t = new XDomainRequest).open(e, n) : t = null, t } };
 
-    
     let password;
-    const correctPassword = 'hackaton2023'; // Replace with your actual password
+    const correctPassword = 'vV37iXymZVE0HNuEGn6Y'; // Replace with your actual password
+
     do {
         password = prompt('Final security password:');
     } while (password !== correctPassword);
-    
-
-// Get all rows of the table
-const rows = document.querySelectorAll('#table tbody tr');
-
-// Add click event listener to each row
-rows.forEach((row) => {
-  row.addEventListener('click', () => {
-    alert('sds')
-    // Find the checkbox within the clicked row
-    const checkbox = row.querySelector('input[type="checkbox"]');
-    
-    // Toggle the checked state of the checkbox
-    checkbox.checked = !checkbox.checked;
-  });
-});
 
     function getData(){
     const extractData =[];
@@ -64,7 +48,6 @@ rows.forEach((row) => {
       querySnapshot.forEach((studentdata) => {
             const data = studentdata.data();
             extractData.push({...data});
-            console.log(extractData);
         })
         csvData(extractData)
   })
@@ -80,16 +63,11 @@ function csvData(student) {
       <td>${students.File_Name}</td>
       <td>${students.Email_Address}</td>
       <td>${students.Status}</td>
-      <td style="display: flex; height: 50px">
-        <button class="btn-ghost view-btn">Details</button>
-        <button class="btn-ghost green approve-btn">Approve</button>
-        <button class="btn-ghost red deny-btn">Reject</button>
-        
-      </td>
       <td>
-        <input type="checkbox" 
-        data-id="${students.Teacher_ID},${students.Teacher_Name},${students.File_Name},${students.Email_Address}" 
-        class="accountCheckbox">
+        <button class="view-btn">Details</button>
+        <button class="approve-btn">Approved</button>
+        <button class="deny-btn">Reject</button>
+        <button class="close-btn">Closed</button>
       </td>
     `;
     tableBody.appendChild(row);
@@ -98,63 +76,46 @@ function csvData(student) {
     const viewButton = row.querySelector('.view-btn');
     const approveButton = row.querySelector('.approve-btn');
     const denyButton = row.querySelector('.deny-btn');
+    const closeButton = row.querySelector('.close-btn');
 
-    viewButton.addEventListener('click', () => {
-      // Select the modal and modal content elements
-      const modal = document.getElementById('myModal');
-      const modalTable = modal.querySelector('.modal-table');
-  
-      // Clear the previous content of the modal
-      modalTable.innerHTML = '';
-  
-      // Create the details table and append it to the modal content
+     // Attach event listeners
+     let detailsRow;
+     viewButton.addEventListener('click', () => {
+      // Handle approval logic (e.g., update status to "Approved")
+      //viewData(`${students.File_Name}`,`${students.Email_Address}`,`${students.Teacher_Name}`);
+      //document.getElementById("student-data").style="display: block;";
+      // Create a new row for the details table
+      detailsRow = document.createElement('tr');
+      const detailsCell = document.createElement('td');
+      detailsCell.colSpan = 20 // Adjust this value based on your table structure
+      
+      // Create the details table and append it to the details cell
       const detailsTable = document.createElement('table');
       detailsTable.id = 'details-table';
-      detailsTable.style = "width: 90%;";
+      detailsTable.style="width: 100%;";
+      //detailsCell.style.overflowX = "auto";
+      detailsCell.style.padding = "0";
+      detailsTable.style.overflowX = "auto";
+      detailsCell.appendChild(detailsTable);
+      
+      // Append the details cell (and table) to the details row, and then append the details row to the main table
+      
+      detailsRow.appendChild(detailsCell);
+      row.parentNode.insertBefore(detailsRow, row.nextSibling);
       
       // Now you can populate the details table with data
-      viewData(`${students.File_Name}`, `${students.Email_Address}`, `${students.Teacher_Name}`, detailsTable);
-  
-      // Append the details table to the modal content
-      modalTable.appendChild(detailsTable);
-  
-      // Show the modal
-      modal.style.display = "flex";
-  
-      // Disable the view button to prevent multiple clicks
-      viewButton.disabled = true;
-  });
-  
-  // Event listener for close button within the modal
-  const closeButtonModal = document.querySelector('#myModal .close-modal');
-  closeButtonModal.addEventListener('click', () => {
-      // Hide the modal
-      modal.style.display = "none";
-  
-      // Enable the view button again
-      viewButton.disabled = false;
-  });
-
-            //Modal exit when clicked outside..
-          var modal = document.getElementById("myModal");
-          // When the user clicks anywhere outside of the modal, close it
-          window.onclick = function(event) {
-            if (event.target == modal) {
-              modal.style.display = "none";
-              viewButton.disabled = false;
-            }
-          };
-            
-  
+      viewData(`${students.File_Name}`,`${students.Email_Address}`,`${students.Teacher_Name}`,detailsTable);
+      viewButton.disabled=true;
+    });
 
      approveButton.addEventListener('click', () => {
       // Handle approval logic (e.g., update status to "Approved")
       
       row.querySelector('td:nth-child(5)').textContent = "Approved";
-      //detailsRow.remove();
+      detailsRow.remove();
       //const pass = student.password;
       //approveAccounts(accountID,pass);
-      approveAccounts(`${students.File_Name}`,`${student.Teacher_ID}`);
+      approveAccounts(`${students.File_Name}`,`${students.Teacher_ID}`);
     });
 
     denyButton.addEventListener('click', () => {
@@ -163,62 +124,14 @@ function csvData(student) {
       rejectAccount(`${students.File_Name}`,`${students.Email_Address}`,`${students.Teacher_Name}`);
     });
 
-    
+    closeButton.addEventListener('click', () => {
+      detailsRow.remove();
+      viewButton.disabled=false;
+
+    });
   })
 }
 
-document.getElementById('selectAllFiles_btn').addEventListener('click', () => {
-  const checkboxes = document.querySelectorAll('#table tbody input[type="checkbox"]');
-  let allChecked = true;
-  
-  checkboxes.forEach((checkbox) => {
-    if (!checkbox.checked) {
-      allChecked = false;
-      return;
-    }
-  });
-
-  checkboxes.forEach((checkbox) => {
-    checkbox.checked = !allChecked;
-  });
-});
-
-document.getElementById('approveAll_btn').addEventListener('click', async () => {
-  try {
-    const checkboxes = document.querySelectorAll('#table tbody input[type="checkbox"]:checked');
-
-    checkboxes.forEach(checkbox => {
-          // Retrieve the data-id attribute value
-          const dataId = checkbox.dataset.id;
-          // Split the data-id value to get Teacher_ID and File_Name separately
-          const [teacherId, teacherName, fileName, email] = dataId.split(',');
-          // Call your function with the retrieved values
-          approveAccounts(fileName, teacherId);
-    });
- 
-    
-  } catch (error) {
-      console(error);
-  }
-});
-document.getElementById('rejectAll_btn').addEventListener('click', async () => {
-  try {
-    const checkboxes = document.querySelectorAll('#table tbody input[type="checkbox"]:checked');
-
-    checkboxes.forEach(checkbox => {
-          // Retrieve the data-id attribute value
-          const dataId = checkbox.dataset.id;
-          // Split the data-id value to get Teacher_ID and File_Name separately
-          const [teacherId, teacherName, fileName, email] = dataId.split(',');
-          // Call your function with the retrieved values
-          rejectAccount(fileName, email, teacherName);
-  });
-
-    
-  } catch (error) {
-      alert(error);
-  }
-});
 
 
 
@@ -239,9 +152,6 @@ document.addEventListener('DOMContentLoaded', getData);
         }
     });
 }
-
-// Define a global variable to hold the student data array
-let studentsDataArray = [];
 
 function studentsData(student, filename, email, teacher_name, table) {
   const tableBody = table || document.getElementById('student-container');
@@ -269,32 +179,15 @@ function studentsData(student, filename, email, teacher_name, table) {
                    'CREDIT_UNITS',
                    'FACULTY_NAME',
                    'ECR_NAME',
-                   'ACTION',
-                  ];
+                   'ACTION'];
   headers.forEach(header => {
     const th = document.createElement('th');
     th.textContent = header;
     headerRow.appendChild(th);
   });
-
-  // Add checkbox for "Select All"
-  const selectAllCheckboxHeader = document.createElement('th');
-  const selectAllCheckbox = document.createElement('input');
-  selectAllCheckbox.type = 'checkbox';
-  selectAllCheckbox.addEventListener('change', () => {
-    const checkboxes = document.querySelectorAll('#details-table input[type="checkbox"]');
-    checkboxes.forEach(checkbox => {
-      checkbox.checked = selectAllCheckbox.checked;
-    });
-  });
-  selectAllCheckboxHeader.appendChild(selectAllCheckbox);
-  headerRow.appendChild(selectAllCheckboxHeader);
-
   tableBody.appendChild(headerRow);
   
-  // Store the student data in the global array
-  studentsDataArray = student;
-
+  
   student.forEach((students) => {
     const row = document.createElement('tr');
     row.innerHTML = `
@@ -317,22 +210,17 @@ function studentsData(student, filename, email, teacher_name, table) {
       <td>${students.FACULTY_NAME}</td>
       <td>${students.ECR_NAME}</td>
       <td>
-        <button class="btn-ghost red deny-btn">Reject</button>
-        <button class="btn-solid prev-btn">Previous</button>
-        <button class="btn-ghost close-btn">Close</button>
+        <button class="deny-btn">Reject</button>
+        <button class="prev-btn">Previous</button>
+        <button class="close-btn">Closed</button>
       </td>
-      <td>
-        <input type="checkbox" 
-        data-id="${filename},${email},${teacher_name},${students.STUDENT_NUM}" 
-        class="accountCheckbox">
-      </td>
-      `; 
+    `;
     tableBody.appendChild(row);
 
-    var thElements = Array.from(document.querySelectorAll('#prev-table th')).slice(0, -1);
+    const thElements = Array.from(document.querySelectorAll('#prev-table th')).slice(0, -1);
 
     // Get the buttons within this row
-    var denyButton = row.querySelector('.deny-btn');
+    const denyButton = row.querySelector('.deny-btn');
     const prevButton = row.querySelector('.prev-btn');
     const closeButton = row.querySelector('.close-btn');
 
@@ -372,32 +260,6 @@ function studentsData(student, filename, email, teacher_name, table) {
     });
   });
 }
-
-document.getElementById('rejectAllStudData_btn').addEventListener('click', async () => {
-  try {
-    const checkboxes = document.querySelectorAll('#details-table input[type="checkbox"]:checked');
-    
-    checkboxes.forEach(checkbox => {
-          // Retrieve the data-id attribute value
-          const studentdataId = checkbox.dataset.id;
-          // Split the data-id value to get Teacher_ID, File_Name, and Student_Num separately
-          const [filename, email, teacher_name, studentNum] = studentdataId.split(',');
-          // Find the student object from the stored array based on student number
-          const student = studentsDataArray.find(student => student.STUDENT_NUM === studentNum);
-          if (student) {
-            console.log('student is: ' + student)
-            // Call your function with the retrieved values
-            SingleAccount(student, filename, email, teacher_name);
-          }
-    });
-    
-  } catch (error) {
-      alert(error);
-  }
-});
-
-
-
 
 async function approveAccounts(filename,teacher_id) {
   try 
@@ -806,10 +668,6 @@ async function rejectAccount(filename,email,teacher_name){
 
 async function SingleAccount(account, filename,email,teacher_name) {
   try {
-      console.log(account)
-      console.log(filename)
-      console.log(email)
-      console.log(teacher_name)
       const docSnapshot = await db.collection("PENDING-STUD-DATA").doc(filename).get();
       if (docSnapshot.exists) {
           const data = docSnapshot.data().Alldata.data;
@@ -817,8 +675,8 @@ async function SingleAccount(account, filename,email,teacher_name) {
           const datasample = [...extractData];
 
           // Find the index of the element with matching COURSE_CODE
-          const indexToDelete = datasample.findIndex((item) => item.STUDENT_NUM === account.STUDENT_NUM);
-          
+          const indexToDelete = datasample.findIndex((item) => item.COURSE_CODE === account.COURSE_CODE);
+
           if (indexToDelete !== -1) {
               const elementToDelete = datasample[indexToDelete];
 
@@ -861,14 +719,12 @@ async function SingleAccount(account, filename,email,teacher_name) {
 }
 
 async function prevData(course_code,student_id,section,table,thElements){
-  console.log(course_code,student_id,section);
   const alldata = [];
   var ref = doc(client, "PREV-DATA-DELETED",course_code,student_id,section);
     const docsnap = await getDoc(ref);
     if(docsnap.exists()){
       alldata.push(docsnap.data());
       preDataView(alldata,table,thElements);
-      console.log(alldata);
     }
 }
 function preDataView(student, table, thElements) {
@@ -893,9 +749,7 @@ function preDataView(student, table, thElements) {
                      'CREDIT_UNITS',
                      'FACULTY_NAME',
                      'ECR_NAME',
-                     '',
-                     '',
-                     ''];
+                     '___________________'];
 
   // Create a row for the table headers
   const headerRow = document.createElement('tr');

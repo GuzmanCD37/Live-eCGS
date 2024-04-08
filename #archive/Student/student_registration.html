@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>SIGNUP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="student_registration_new.css">
+    <link rel="stylesheet" href="student_registration.css">
+    <link rel="stylesheet" href="adjustcss-for-student-registration.css">
+    <link rel="stylesheet" href="pop-up.css">
+</head>
+
+<body class="place-center">
+    
+    <section class="container" style="margin-bottom: 138px;">
+        <div class=" forms">
+            <div class="registrationbtn-container" style="margin-top: 10px; margin-bottom: 5px;">
+            <div style="display: flex; padding: 0px;"> 
+            <span class="labels mb-lg" id="registratio-header" style="padding: 0px ; margin:0px; color: white; margin-left: 5px;">Register</span>
+            </div>
+            
+            <div style="display: inline-flex;">
+                <input class="inputs mb-xs" id="student-id" type="text" placeholder="Enter Student ID">
+                <button class="btn-ghost full" id="register_button">Register</button>
+                <button class="btn-ghost full" id="verify-button" title="Verify">Verify</button>
+                <button class="btn-ghost full" id="next_button">Next</button>
+                <button class="btn-ghost full" id="back_button">Back</button>
+            </div>
+            </div>
+            <div class="register-container mb-md" id="register-container">
+                <div id="personal-data-container">
+                    <div class="personal-data">
+                        <span class="sub-labels">Name: </span>
+                        <input class="inputs mb-xs" type="text" id="first-name" placeholder="First Name">
+                        <input class="inputs mb-xs" type="text" id="middle-initial" placeholder="M.I. (Optional)">
+                        <input class="inputs mb-xs" type="text" id="last-name" placeholder="Last Name">
+                        <span class="sub-labels">Password: </span>
+                        <input class="inputs" type="password" id="password" placeholder="Enter Password">
+                    </div>
+                    <div class="personal-data-image">
+                    </div>
+                </div>
+                
+                
+                <div class="subjects" id="subjects-container">
+                    <span class="sub-labels" id="sub-label" style="color: white;">Subject Verification: </span>
+                    <div class="subject-inputs">
+                        <div class="verif-form-row1" id="verif-form-row1">
+                            <input class="inputs mb-xs" id="sub1_verification" placeholder="Enter Code">
+                            <textarea class="veriflabel" id="verified1" placeholder=" --" disabled></textarea>
+                            <br>
+                            <input class="inputs mb-xs" id="sub2_verification" placeholder="Enter Code">
+                            <textarea class="veriflabel" id="verified2" placeholder=" --" disabled></textarea>
+                            <br>
+                            <input class="inputs mb-xs" id="sub3_verification" placeholder="Enter Code">
+                            <textarea class="veriflabel" id="verified3" placeholder=" --" disabled></textarea>
+                            <br>
+                            <input class="inputs mb-xs" id="sub4_verification" placeholder="Enter Code">
+                            <textarea class="veriflabel" id="verified4" placeholder=" --" disabled></textarea>
+                            <br>
+                            <input class="inputs mb-xs" id="sub5_verification" placeholder="Enter Code">
+                            <textarea class="veriflabel" id="verified5" placeholder=" --" disabled></textarea>
+                            <br>
+                            <input class="inputs mb-xs" id="sub6_verification" placeholder="Enter Code">
+                            <textarea class="veriflabel" id="verified6" placeholder=" --" disabled></textarea>
+                            <br>              
+                        </div>
+                        <div class="verif-form-row2" id="verif-form-row2" style="width: 280px;">
+                            <input class="inputs mb-xs" id="sub7_verification" placeholder="Enter Code">
+                            <textarea class="veriflabel" id="verified7" placeholder=" --" disabled></textarea>
+                            <br>
+                            <input class="inputs mb-xs" id="sub8_verification" placeholder="Enter Code">
+                            <textarea class="veriflabel" id="verified8" placeholder=" --" disabled></textarea>
+                            <br>
+                            <input class="inputs mb-xs" id="sub9_verification" placeholder="Enter Code">
+                            <textarea class="veriflabel" id="verified9" placeholder=" --" disabled></textarea>
+                            <br>
+                            <input class="inputs mb-xs" id="sub10_verification" placeholder="Enter Code">
+                            <textarea class="veriflabel" id="verified10" placeholder=" --" disabled></textarea>
+                            <br>
+                            <input class="inputs mb-xs" id="sub11_verification" placeholder="Enter Code">
+                            <textarea class="veriflabel" id="verified11" placeholder=" --" disabled></textarea>
+                            <br>
+                            <input class="inputs mb-xs" id="sub12_verification" placeholder="Enter Code">
+                            <textarea class="veriflabel" id="verified12" placeholder=" --" disabled></textarea>
+                            <br>
+                        </div>
+                        <div class="subjects-image" id="subjects-image">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="warningcheckaccount">
+                <p id="personal-datawarning"><i>For new users: <br>Please be aware that you won't be able to change your password after registration. </i></p>
+                <p id="subjects-warning"><i>Note: Make sure your subjects are complete and correct</i></p>
+                
+                <p class="sub-labels txt-center" style="margin:0px; color: white;">Already have an account? <b><a class="links" href="index.html">Log
+                            in</a></b>
+                </p>
+        </div>
+        </div>
+        </div>
+        <div id="myPopup" class="popup">
+            <div class="popup-content">
+                  <span id="pop-up-top">System Notice!</span>
+                  <br>
+                <p id="pop-up-message"></p>
+                <br>
+                <a id="closePopup">Close</a>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="student_registration.js"></script>
+    <script>
+            document.getElementById('pop-up-message').innerHTML="For Verification, check your email inbox or spam for the verification codes of your subject";
+            document.getElementById('pop-up-message').style.textAlign = "center";
+            myPopup.classList.add("show");
+    </script>
+    <footer>
+        <p id="copyright">
+            &copy; <script>document.write(new Date().getFullYear())</script> Develop By Antipolo HackathonTeam_2023
+        </p>
+    </footer>
+</body>
+
+</html>

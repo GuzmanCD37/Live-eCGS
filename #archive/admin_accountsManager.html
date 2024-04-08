@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>UPDATE</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="pop-up.css">
+    <link rel="stylesheet" href="admin_accountsManager.css">
+</head>
+
+<body>
+  
+
+
+  <section class="container">
+      
+        <div class="panel-container" id = "pendingContainer" style="width: 700px;">
+          <h3>Pending Accounts</h3>
+            <div class="table-container overflow">
+              <table id="pendingAccTable">
+                <thead >
+                  <tr>
+                    <th>TeacherID</th>
+                    <th style="width: 200px;">Name</th>
+                    <th>Password</th>
+                    <th>Approve</th>
+                  </tr>
+                </thead>
+                <tbody >
+                  <!-- Table rows will be dynamically added here -->
+                </tbody>
+              </table>
+            </div>
+
+            <button class="btn-solid full mb-lg" id="selectAllpend_button" style="margin-bottom: 10px;">Select All</button>
+            <button class="btn-solid full mb-lg" id="approve_button" style="margin-bottom: 10px;">Approve</button>
+            <button class="btn-solid full mb-lg" id="reject_button" style="margin-bottom: 10px; background: rgb(197, 0, 0);" >Reject</button>
+            
+        </div>
+        
+
+        <div class="panel-container" id = "accountsContainer" style="width: 700px;">
+          <h3>Teacher Accounts</h3>
+            <div class="table-container overflow">
+              <table  id="accountsTable">
+                <thead>
+                  <tr>
+                    <th>TeacherID</th>
+                    <th style="width: 200px;">Name</th>
+                    <th>Password</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Table rows will be dynamically added here -->
+                </tbody>
+              </table>
+            </div>
+            <button class="btn-solid full mb-lg" id="selectAllAcc_button" style="margin-bottom: 10px;">Select All</button>
+            <button class="btn-solid full mb-lg" id="delete_button" style="margin-bottom: 10px; background: rgb(197, 0, 0);" >Delete</button>
+        </div>
+    </section>
+    <div id="myPopup" class="popup">
+      <div class="popup-content">
+            <span id="pop-up-top">System Notice!</span>
+            <br>
+          <p id="pop-up-message"></p>
+          <br>
+          <a id="closePopup">Close</a>
+      </div>
+    </div>
+    <script type="module" src="admin_accountsManager.js"></script>
+
+</body>
+
+</html>
