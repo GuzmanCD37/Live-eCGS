@@ -29,7 +29,6 @@ const firebaseConfig = {
   let toDelete =[];
   let IDrecieved = [];
   let checksub = 0;
-  let teacherName;
   let qrResults;
 
     const sub1_btn = document.getElementById('verify-button');
@@ -41,8 +40,6 @@ const firebaseConfig = {
     let fName = document.getElementById('first-name');
     let mI = document.getElementById('middle-initial');
     let lName = document.getElementById('last-name');
-    let email = document.getElementById('email');
-    let section = document.getElementById('section');
     let password = document.getElementById('password');
 
     let sub1 = document.getElementById('sub1_verification');
@@ -73,7 +70,6 @@ function conditionStatement(){
                 dataID = GenerateData.id;
                 newdataID.push(GenerateData.id);
                 const studentID = GenerateData.data().StudentID;
-                teacherName = GenerateData.data().TeacherName;
                 Course_Code = GenerateData.data().CourseCode;
                 GenerateContainer.push({ ...data, dataID});
                 IDrecieved.push(dataID);
@@ -104,7 +100,7 @@ function code01verified(){
         codecontainer = [...new Set(codecontainer)];
         GenerateContainer = [...new Set(GenerateContainer)];
         checksub=1;
-        document.getElementById('verified1').value = Gcode01.CourseCode + " " + teacherName;
+        document.getElementById('verified1').value = Gcode01.CourseCode + " " + Gcode01.TeacherName;
         document.getElementById("next_button").style="display: block;";
         document.getElementById("sub2_verification").style="display: inline-flex;";
         document.getElementById("verified2").style="display:inline-flex;";
@@ -128,14 +124,13 @@ function code02verified(){
         codecontainer = [...new Set(codecontainer)];
         GenerateContainer = [...new Set(GenerateContainer)];
         checksub=2;
-        document.getElementById('verified2').value = Gcode02.CourseCode + " " + teacherName;
+        document.getElementById('verified2').value = Gcode02.CourseCode + " " + Gcode02.TeacherName;
         document.getElementById("next_button").style="display: block;";
         document.getElementById("sub3_verification").style="display: inline-flex;";
         document.getElementById("verified3").style="display:inline-flex;";
     }else{
         document.getElementById('verified2').value = "Please Check your verification & ID!";
         document.getElementById("next_button").style="display: none;";
-        console.log(Gcode02);
     }
 }
 function code03verified(){
@@ -152,7 +147,7 @@ function code03verified(){
         codecontainer = [...new Set(codecontainer)];
         GenerateContainer = [...new Set(GenerateContainer)];
         checksub=3;
-        document.getElementById('verified3').value = Gcode03.CourseCode + " " + teacherName;
+        document.getElementById('verified3').value = Gcode03.CourseCode + " " + Gcode03.TeacherName;
         document.getElementById("next_button").style="display: block;";
         document.getElementById("sub4_verification").style="display: inline-flex;";
         document.getElementById("verified4").style="display:inline-flex;";
@@ -175,7 +170,7 @@ function code04verified(){
         codecontainer = [...new Set(codecontainer)];
         GenerateContainer = [...new Set(GenerateContainer)];
         checksub=4;
-        document.getElementById('verified4').value = Gcode04.CourseCode + " " + teacherName;
+        document.getElementById('verified4').value = Gcode04.CourseCode + " " + Gcode04.TeacherName;
         document.getElementById("next_button").style="display: block;";
         document.getElementById("sub5_verification").style="display: inline-flex;";
         document.getElementById("verified5").style="display:inline-flex;";
@@ -198,7 +193,7 @@ function code05verified(){
         codecontainer = [...new Set(codecontainer)];
         GenerateContainer = [...new Set(GenerateContainer)];
         checksub=5;
-        document.getElementById('verified5').value = Gcode05.CourseCode + " " + teacherName;
+        document.getElementById('verified5').value = Gcode05.CourseCode + " " + Gcode05.TeacherName;
         document.getElementById("next_button").style="display: block;";
         document.getElementById("sub6_verification").style="display: inline-flex;";
         document.getElementById("verified6").style="display:inline-flex;";
@@ -221,7 +216,7 @@ function code06verified(){
         codecontainer = [...new Set(codecontainer)];
         GenerateContainer = [...new Set(GenerateContainer)];
         checksub=6;
-        document.getElementById('verified6').value = Gcode06.CourseCode + " " + teacherName;
+        document.getElementById('verified6').value = Gcode06.CourseCode + " " + Gcode06.TeacherName;
         document.getElementById("next_button").style="display: block;";
         document.getElementById("verif-form-row2").style="display: block";
         document.getElementById("subjects-image").style="display: none";
@@ -248,7 +243,7 @@ function code07verified(){
         codecontainer = [...new Set(codecontainer)];
         GenerateContainer = [...new Set(GenerateContainer)];
         checksub=7;
-        document.getElementById('verified7').value = Gcode07.CourseCode + " " + teacherName;
+        document.getElementById('verified7').value = Gcode07.CourseCode + " " + Gcode07.TeacherName;
         document.getElementById("next_button").style="display: block;";
         document.getElementById("sub8_verification").style="display: inline-flex;";
         document.getElementById("verified8").style="display:inline-flex;";
@@ -271,7 +266,7 @@ function code08verified(){
         codecontainer = [...new Set(codecontainer)];
         GenerateContainer = [...new Set(GenerateContainer)];
         checksub=8;
-        document.getElementById('verified8').value = Gcode08.CourseCode + " " + teacherName;
+        document.getElementById('verified8').value = Gcode08.CourseCode + " " + Gcode08.TeacherName;
         document.getElementById("next_button").style="display: block;";
         document.getElementById("sub9_verification").style="display: inline-flex;";
         document.getElementById("verified9").style="display:inline-flex;";
@@ -294,7 +289,7 @@ function code09verified(){
         codecontainer = [...new Set(codecontainer)];
         GenerateContainer = [...new Set(GenerateContainer)];
         checksub=9;
-        document.getElementById('verified9').value = Gcode09.CourseCode + " " + teacherName;
+        document.getElementById('verified9').value = Gcode09.CourseCode + " " + Gcode09.TeacherName;
         document.getElementById("next_button").style="display: block;";
         document.getElementById("sub10_verification").style="display: inline-flex;";
         document.getElementById("verified10").style="display:inline-flex;";
@@ -317,7 +312,7 @@ function code010verified(){
         codecontainer = [...new Set(codecontainer)];
         GenerateContainer = [...new Set(GenerateContainer)];
         checksub=10;
-        document.getElementById('verified10').value = Gcode10.CourseCode + " " + teacherName;
+        document.getElementById('verified10').value = Gcode10.CourseCode + " " + Gcode10.TeacherName;
         document.getElementById("next_button").style="display: block;";
         document.getElementById("sub11_verification").style="display: inline-flex;";
         document.getElementById("verified11").style="display:inline-flex;";
@@ -340,7 +335,7 @@ function code011verified(){
         codecontainer = [...new Set(codecontainer)];
         GenerateContainer = [...new Set(GenerateContainer)];
         checksub=11;
-        document.getElementById('verified11').value = Gcode11.CourseCode + " " + teacherName;
+        document.getElementById('verified11').value = Gcode11.CourseCode + " " + Gcode11.TeacherName;
         document.getElementById("next_button").style="display: block;";
         document.getElementById("sub12_verification").style="display: inline-flex;";
         document.getElementById("verified12").style="display:inline-flex;";
@@ -363,7 +358,7 @@ function code12verified(){
         codecontainer = [...new Set(codecontainer)];
         GenerateContainer = [...new Set(GenerateContainer)];
         checksub=12;
-        document.getElementById('verified12').value = Gcode12.CourseCode + " " + teacherName;
+        document.getElementById('verified12').value = Gcode12.CourseCode + " " + Gcode12.TeacherName;
         document.getElementById("next_button").style="display: block;";
     }else{
         document.getElementById('verified12').value = "Please Check your verification & ID!";
@@ -532,6 +527,12 @@ async function checkingaccount(){
         document.getElementById("verified5").style="display: none;";
         document.getElementById("sub6_verification").style="display: none;";
         document.getElementById("verified6").style="display: none;";
+        document.getElementById("sub7_verification").style="display: none;";
+        document.getElementById("verified7").style="display: none;";
+        document.getElementById("sub8_verification").style="display: none;";
+        document.getElementById("verified8").style="display: none;";
+        document.getElementById("verif-form-row2").style="display: none";
+        document.getElementById("subjects-image").style="display: block";
     }
     closePopup.addEventListener("click", function () {
         myPopup.classList.remove("show");
@@ -575,13 +576,13 @@ function QrVerification(){
         const data = GenerateData.data();
         const stID = GenerateData.id;
         newdataID.push(GenerateData.id);
-        teacherName = GenerateData.data().TeacherName;
         listdata.push({ ...data, stID});
         })
         let retrieveCode = listdata.find(function(GenerateCode){
             return GenerateCode.CourseCode === qrResults && GenerateCode.StudentID === studID.value
         })
         if (retrieveCode){
+            console.log(retrieveCode);
         newlistdata.push(retrieveCode.studID);
         codecontainer.push(retrieveCode.CourseCode);
         codecontainer = [...new Set(codecontainer)];
@@ -589,7 +590,7 @@ function QrVerification(){
         checksub=1;
         toDelete.push(retrieveCode.stID);
         document.getElementById('sub1_verification').value = retrieveCode.stID
-        document.getElementById('verified1').value = retrieveCode.CourseCode + " " + teacherName;
+        document.getElementById('verified1').value = retrieveCode.CourseCode + " " + retrieveCode.TeacherName;
         document.getElementById("next_button").style="display: block;";
         document.getElementById("qrsub1").style="display: none;";
         document.getElementById("verify-button").style="display: none;";
@@ -632,7 +633,7 @@ qrbtn.addEventListener('click', function() {
                 qrResults = decodeText,decodeResult;
                 const Toseperate = qrResults.split(",");
                 qrResults = Toseperate[1];
-                console.log(qrResults);
+                
                 QrVerification();
                 myqrcode.classList.remove("show");
                 myqr.innerHTML = `You scanned ${decodeText}`;

@@ -1,0 +1,113 @@
+body{
+    background-image: url(https://e0.pxfuel.com/wallpapers/608/361/desktop-wallpaper-code-programming-dark-text-technologies-technology-notebook-laptop.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+}
+#std-login-header{
+    color: white;
+    width: 400px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 50px;
+}
+#check-account{
+    color: white;
+    width: 400px;
+    margin-top: 50px;
+}
+#student_id,
+#password{
+    color: white;
+    font-weight: 600;
+    width: 400px;
+    margin-left: 10px;
+    background-color: transparent;
+}
+#studLogin_button{
+    width: 400px;
+    margin-left: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    font-weight: 500;
+    color: white;
+    border: 1px solid white;
+    transition: all 300ms ease;
+}
+#studLogin_button:hover{
+    background-color: white;
+    color: black;
+}
+#for-student-login-formBackground{
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    border: 2px solid white;
+    max-width: 800px;
+}
+.image-background{
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 340px;
+    height: 330px;
+    margin-top: 10px;
+    background-image: url(https://e1.pxfuel.com/desktop-wallpaper/903/298/desktop-wallpaper-programming-quotes-inspiring-quotesgram-programming-quotes.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+.image-container{
+    margin-left: -20px;
+    margin-top: -30px;
+    display: block;
+    width: 770px;
+    height: 350px;
+    position: absolute;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+footer{
+    bottom: 10px;
+    position: fixed;
+}
+footer p{
+    color: white;
+}
+@media (max-width: 700px) {
+    #for-student-login-formBackground{
+        height: 400px;
+    }
+    .image-background{
+        display: none;
+    }
+    .container{
+        margin-top:-130px;
+        width: 350px;
+    }
+    #student_id,
+    #password,
+    #studLogin_button,
+    #check-account,
+    #std-login-header{
+        width: 250px;
+    }
+    .image-container{
+        width: 270px;
+        height: 330px;
+        margin-left: -10px;
+    }
+    #myPopup{
+      margin-top:110px;
+    }
+    footer{
+       bottom: 80px;
+}
+}
+
+

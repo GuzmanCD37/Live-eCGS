@@ -389,6 +389,9 @@ document.getElementById('rejectAllStudData_btn').addEventListener('click', async
             // Call your function with the retrieved values
             SingleAccount(student, filename, email, teacher_name);
           }
+        document.getElementById('pop-up-message').innerHTML="Selected Students Data Rejected";
+        document.getElementById('pop-up-message').style.textAlign = "center";
+        myPopup.classList.add("show");
     });
     
   } catch (error) {

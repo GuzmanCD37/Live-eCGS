@@ -25,21 +25,23 @@
             <section class="container">
             <div class="captionbutton-container">
                 <div class="user-info">
-                <span id="st-name">Student ID & Name:</span><p id="stname"></p> 
-                <!-- FOR THE FUTURE
-                <label for="select-year" id="select-year">Select Semester: 
-                <select id="select-value">
-                <option value="1st">First Year</option>
-                <option value="2nd">Second Year</option>
-                <option value="3rd">Third Year</option>
-                 Add more options as needed
-                -->
+                <span id="st-name">Student Name:</span><p id="stname"></p>
+                <span id="st-name">Student Number:</span><p id="stnum"></p>
+                <br> 
+                
+                <label for="select-year" id="select-year" style="margin-left: 30px;">Select Semester: 
+                <select id="select-value" style="width: 160px;">
+                <option value="FIRST YEAR" selected>FIRST YEAR</option>
+                <option value="SECOND YEAR">SECOND YEAR</option>
+                <option value="THIRD YEAR">THIRD YEAR</option>
+                <option value="FOURTH YEAR">FOURTH YEAR</option>
             </select></label>
                 
-                    <caption><span>SCHOOL YEAR:</span><span id="school_year"></span></caption>
+                <span style="margin-left: 30px;">SCHOOL YEAR:</span><span id="school_year"></span>
                 </div>
                 <div class="extra-btn">
-                    <a id="logout_btn" href="">Log-out</a>
+                    <button id="prospectus_btn" class="header_btn">PROSPECTUS</button>
+                    <a id="logout_btn" class="header_btn" href="">Log-out</a>
                 </div>
                 </div>
                     <div id="table-design">
@@ -101,6 +103,88 @@
                     </div>
                 </div>
             </section>
+            <div class="prospectus_container">
+                <div class="prospectus_form" id="prospectus_form">
+                    <a id="print_prospectus">PRINT</a>
+                    <a id="cancel-prospectus">X</a>
+                    <div class="header_container">
+                        <h1>ICCT Colleges Foundation, Inc.</h1>
+                        <h2>Bachelor of Science in Information Technology</h2>
+                        <h3>Curriculum Year 2020-2021</h3>
+                
+                <hr>
+                    <div class="info-container">
+                        <div class="info-item">
+                            <span>STUDENT NUMBER:</span><span id="student_id"><b>UA11223344</b></span>
+                        </div>
+                        <div class="info-item">
+                            <span>STUDENT NAME:</span><span id="student_name">Jabilat</span>
+                        </div>
+                
+                        <div class="info-item">
+                            <span>ACADEMIC YEAR:</span><span id="academic_year">2023-2024</span>
+                        </div>
+                    </div>
+                <hr>
+                        <!--First Year-->
+                        <div class="FirstYear">
+                            <h1>First Year</h1>
+                            <h3><u>First</u></h3>
+                            <table class="prospectus_table">
+                                <tbody id="propsectus_first_tbody">
+                        
+                                </tbody>
+                            </table>
+                        </div>
+                
+                        <div class="SecTrim">
+                            <h3><u>Second</u></h3>
+                            <table class="prospectus_table">
+                                <tbody id="propsectus_second_tbody">
+                        
+                                </tbody>
+                            </table>
+                        </div>
+                
+                        <div class="ThirdTrim">
+                                <h3><u>Third</u></h3>
+                                <table class="prospectus_table">
+                                <tbody id="propsectus_third_tbody">
+                        
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--Second Year-->
+                        <div class="FirstYear">
+                            <h1>Second Year</h1>
+                            <h3><u>First</u></h3>
+                            <table class="prospectus_table">
+                                <tbody id="second_year_firstsem">
+                        
+                                </tbody>
+                            </table>
+                        </div>
+                
+                        <div class="SecTrim">
+                            <h3><u>Second</u></h3>
+                            <table class="prospectus_table">
+                                <tbody id="second_year_secondsem">
+                        
+                                </tbody>
+                            </table>
+                        </div>
+                
+                        <div class="ThirdTrim">
+                                <h3><u>Third</u></h3>
+                                <table class="prospectus_table">
+                                <tbody id="second_year_thirdsem">
+                        
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+            </div>
+        </div>
         </section>
     </main>
     <footer>

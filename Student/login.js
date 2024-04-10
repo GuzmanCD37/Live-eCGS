@@ -45,11 +45,12 @@ const firebaseConfig = {
   //if the value from the variable pass is equal to the value of upass that the user input/    
         if(pass == upass.value){
           //assigning data from firestore to variable
-          var student_id = docsnap.data().studentID;
-          var stdname = docsnap.data().name;
-          var subs = docsnap.data().subjects;
-          var tri = docsnap.data().trimester;
-          UserData.push({student_id,stdname,subs,tri});
+          const student_id = docsnap.data().studentID;
+          const student_pass = docsnap.data().password;
+          const stdname = docsnap.data().name;
+          const subs = docsnap.data().subjects;
+          const tri = docsnap.data().trimester;
+          UserData.push({student_id,student_pass,stdname,subs,tri});
           const UserDataTransfer = JSON.stringify(UserData);
           //make it global to be able to access in different js file.
           localStorage.setItem('UserData', UserDataTransfer);

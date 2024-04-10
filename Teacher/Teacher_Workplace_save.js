@@ -114,34 +114,39 @@ input.onchange = (e) => {
 
 
         async function transferData() {
-                const ref = doc(db, "TEACHER_LIST", teacher_id);
-                const docsnap = await getDoc(ref);
-                if (docsnap.exists()) {
-                    tname.value = docsnap.data().TeacherName;
-                    email = docsnap.data().Email_Address;
-                    allsubs.push(docsnap.data().subjects);
-                    allsubs.forEach((subject) => {
-                        subjectsData = [subject, codecontainer];
-                        const uniqueArray = subjectsData.flat().filter((subject, index, self) => {
-                            return self.indexOf(subject) === index;
-                        });
+            const ref = doc(db, "TEACHER_LIST", teacher_id);
+            const docsnap = await getDoc(ref);
+            if (docsnap.exists()) {
+                tname.value = docsnap.data().TeacherName;
+                email = docsnap.data().Email_Address;
+                allsubs.push(docsnap.data().subjects);
+                allsubs.forEach((subject) => {
+                    subjectsData = [subject, codecontainer];
+                    const uniqueArray = subjectsData.flat().filter((subject, index, self) => {
+                        return self.indexOf(subject) === index;
                     });
-                    
-                    pass = docsnap.data().password;
-                    allsubs = docsnap.data().subjects;
-                    const selectElement = document.getElementById("select-coursecode");
-        
-                    for (let i = 0; i < allsubs.length; i++) {
-                        const newOption = document.createElement("option");
-                        newOption.text = allsubs[i]; 
-                        newOption.value = allsubs[i]; 
-                        selectElement.add(newOption); 
-                    }
-                    
-                    
+                });
+                
+                pass = docsnap.data().password;
+                allsubs = docsnap.data().subjects;
+                const selectElement = document.getElementById("select-coursecode");
+
+                for (let i = 0; i < allsubs.length; i++) {
+                    const newOption = document.createElement("option");
+                    newOption.text = allsubs[i]; 
+                    newOption.value = allsubs[i]; 
+                    selectElement.add(newOption); 
+                }  
+
+                if (email){
+                    alert('teacher email')
+                }else{
+                    alert('admin email')
+                }
+            }
+
+            
         }
-        
-    }
     
     viewQR.addEventListener('click', function(){
         let generateQR = generateVerifCode() +","+ selectCourscode.value +","+generateVerifCode()+tname.value;

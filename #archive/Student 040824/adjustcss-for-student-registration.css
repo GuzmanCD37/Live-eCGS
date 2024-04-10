@@ -1,0 +1,254 @@
+body{
+    background-image: url(https://e0.pxfuel.com/wallpapers/608/361/desktop-wallpaper-code-programming-dark-text-technologies-technology-notebook-laptop.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+.registrationbtn-container{
+    display: flex;
+    justify-content: space-between;
+    background-color:transparent;
+    border: 1px solid white;
+    text-align: center;
+    padding: 10px 5px;
+    border-radius:6px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    
+}
+.forms{
+    padding:5px 25px;
+    width: 700px;
+    max-width: 60vw;
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid white;
+}
+#personal-data-container,
+#register_button,
+#personal-datawarning,
+#verif-form-row2,
+#back_button,
+#next_button,
+#addsub_button,
+#password,
+#sub2_verification,
+#sub3_verification,
+#sub4_verification,
+#sub5_verification,
+#sub6_verification,
+#sub7_verification,
+#sub8_verification,
+#sub9_verification,
+#sub10_verification,
+#sub11_verification,
+#sub12_verification,
+#verified2,
+#verified3,
+#verified4,
+#verified5,
+#verified6,
+#verified7,
+#verified8,
+#verified9,
+#verified10,
+#verified11,
+#verified12
+{  
+    display: none;
+}
+#personal-datawarning,
+#subjects-warning,
+#addsubject-warning{
+    font-size: 14px; 
+    color: red; 
+    font-weight: 500; 
+    text-align: center;
+}
+#student-id,
+#password{
+    text-align: center; 
+    width: 120px; 
+    margin-bottom:0px; 
+    margin-right: 5px;
+    background-color: transparent; 
+    color: white;
+}
+#register-container{
+    display: block;
+}
+.subject-inputs{
+    display: flex;
+    justify-content: space-between;
+    
+}
+#verif-form-row1{
+    max-width: 800px;
+    min-width: 320px;
+    min-height: 58px;
+}
+textarea{
+    width:170px;
+    color: white;
+}
+.subjects{
+    border: 1px solid white;
+    background-color:transparent;
+    padding: 10px;
+}
+
+.subjects-image{
+    background-image: url(https://e1.pxfuel.com/desktop-wallpaper/891/845/desktop-wallpaper-programming-for-your-or-mobile-screen-and-easy-to-anime-programming.jpg);
+    background-repeat: no-repeat;
+    background-size:60dvw;
+    background-position: center,center;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 10px;
+}
+.personal-data-container{
+    display: flex;
+    justify-content: space-between;
+}
+.personal-data span{
+    color: white;
+}
+.personal-data input{
+    background-color:transparent;
+    color: white;
+}
+.personal-data-image{
+    width: 100%;
+    height: auto;
+    border: 1px solid white;
+    margin-left: 10px;
+    background-image: url(https://e0.pxfuel.com/wallpapers/910/30/desktop-wallpaper-cute-cat-cute-cat-weird-cat.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    overflow: hidden;
+}
+#warningcheckaccount{
+    border:1px solid white ; 
+    border-radius: 5px; 
+    margin-top: -10px; 
+    padding: 10px 5px; 
+    margin-bottom: 10px;
+}
+.scanner-qr{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.274);
+}
+#my-qr-reader{
+    display:block;
+    background-color:rgba(8, 8, 8, 0.205);
+    border-radius:10px;
+    padding: 20px;
+    margin: auto;
+    border: 1px solid white;
+    width: 30%;
+    font-weight: bolder;
+    font-family: 'Roboto',serif;
+    justify-content:center;
+    text-align:center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    margin-top: 90px;
+}
+#closecamera{
+    cursor: pointer;
+}
+footer{
+    bottom: 10px;
+    position: fixed;
+    color: white;
+}
+@media (max-width:700px) {
+    .registrationbtn-container{
+      display: block;
+    }
+    .forms{
+        max-width: 100%;
+        overflow: scroll;
+    }
+    #sub-label{
+        margin-top: 5px;
+        margin-left: 10px;
+    }
+    .verif-form-row1{
+        width: 300px;
+        margin-left: 10px;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        margin-top:30px;
+    }
+    .subject-inputs{
+        display: block;
+        
+    }
+   .personal-data-image{
+        display: none;
+   }
+   #myPopup{
+      margin-top:110px;
+    }
+    #my-qr-reader{
+        margin-top: 150px;
+        width: 300px;
+    }
+    footer{
+       bottom: 80px;
+       position: fixed;
+}
+}
+@media (max-width:375px) {
+    .registrationbtn-container{
+        display: block;
+    }
+    #subjects-container{
+        overflow-x: auto;
+    }
+    #student-id{
+        padding: 0px;
+        margin: 0px;
+        margin-top: 3px;
+        width: 110px;
+        height: 10px;
+    }
+    .forms{
+        max-width: 100%;
+        max-height: 90vh;
+    }
+    #verif-form-row1{
+        width: 80px;
+        margin-left: 10px;
+    }
+    #verif-form-row2{
+        width: auto;
+        height: 58px auto;
+        margin-left: 10px;
+    }
+    #verif-form-row2 input{
+        width: 100px;
+    }
+    #my-qr-reader{
+        margin-top: 150px;
+        width: 300px;
+    }
+    
+}

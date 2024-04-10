@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Student User-Interface</title>
+    <link rel="icon" type="image/png"  href="circuit.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="adjustcss-for-student-ui.css">
+    <script type="text/javascript">
+        var slowLoad = window.setTimeout(function () {
+            alert("The page is taking its sweet time loading. Consider a basic version.");
+        }, 10000); // Set the timeout duration (e.g., 10 seconds)
+    
+        window.addEventListener('load', function () {
+            window.clearTimeout(slowLoad); // Cancel the timeout when the page finishes loading
+        }, false);
+    </script>    
+    <title>student interface</title>
+</head>
+
+<body>
+    <main>
+        <section class="mt-md">
+            <section class="container">
+            <div class="captionbutton-container">
+                <div class="user-info">
+                <span id="st-name">Student ID & Name:</span><p id="stname"></p> 
+                <!-- FOR THE FUTURE
+                <label for="select-year" id="select-year">Select Semester: 
+                <select id="select-value">
+                <option value="1st">First Year</option>
+                <option value="2nd">Second Year</option>
+                <option value="3rd">Third Year</option>
+                 Add more options as needed
+                -->
+            </select></label>
+                
+                    <caption><span>SCHOOL YEAR:</span><span id="school_year"></span></caption>
+                </div>
+                <div class="extra-btn">
+                    <a id="logout_btn" href="">Log-out</a>
+                </div>
+                </div>
+                    <div id="table-design">
+                        <table class="table" id="table">
+                            <thead>
+                                <tr id="first_sem_table">
+                                    <th>Course Code</th>
+                                    <th>Course Description</th>
+                                    <th>TRIMESTER</th>
+                                    <th>Prelim Grade</th>
+                                    <th>Midterm Grade</th>
+                                    <th>Final Grade</th>
+                                    <th>REMARKS</th>
+                                    <th>Section</th>
+                                    <th>Instructor</th>
+                                    <th>Credit Units</th>
+                                </tr>
+                            </thead>
+                            <tbody id="firsttrimester"></tbody>
+                        </table>
+                    
+                    <div id="table2_container">
+                        <table class="table" id="table2">
+                            <thead>
+                                <tr id="first_sem_table">
+                                    <th>Course Code</th>
+                                    <th>Course Description</th>
+                                    <th>TRIMESTER</th>
+                                    <th>Prelim Grade</th>
+                                    <th>Midterm Grade</th>
+                                    <th>Final Grade</th>
+                                    <th>REMARKS</th>
+                                    <th>Section</th>
+                                    <th>Instructor</th>
+                                    <th>Credit Units</th>
+                                </tr>
+                            </thead>
+                            <tbody id="secondtrimester"></tbody>
+                        </table>
+                    </div>
+                    <div id="table3_container">
+                        <table class="table" id="table3">
+                            <thead>
+                                <tr id="first_sem_table">
+                                    <th>Course Code</th>
+                                    <th>Course Description</th>
+                                    <th>TRIMESTER</th>
+                                    <th>Prelim Grade</th>
+                                    <th>Midterm Grade</th>
+                                    <th>Final Grade</th>
+                                    <th>REMARKS</th>
+                                    <th>Section</th>
+                                    <th>Instructor</th>
+                                    <th>Credit Units</th>
+                                </tr>
+                            </thead>
+                            <tbody id="thirdtrimester"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <p id="copyright">
+            &copy; <script>document.write(new Date().getFullYear())</script> Develop By Antipolo HackathonTeam_2023
+        </p>
+    </footer>
+</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script type="module" src="student_ui.js"></script> 
+</html>

@@ -18,9 +18,6 @@
     border-radius: var(--brd-radius);
     background-color: var(--clr-slate-100);
 }
-#select-year{
-    width: 59%;
-}
 
 /* md */
 @media (max-width: 768px) {

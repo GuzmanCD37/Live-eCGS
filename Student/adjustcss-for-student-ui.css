@@ -15,6 +15,13 @@ body{
     -webkit-backdrop-filter: blur(3px);
     height: 100vh;
     width:auto;
+
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }
 
 
@@ -126,25 +133,32 @@ span{
     font-family: 'Open Sans', sans-serif;
     
 }
-#stname{
+#stname,
+#stnum,
+#styear{
     margin-left: 10px;
     display: inline-flex;
     color: white;
     font-family: 'Open Sans', sans-serif;
 }
-#logout_btn{
+.header_btn{
     text-align: center;
     text-decoration: none;
     background-color: rgba(255, 255, 255, 0)  ;
     padding: 4px;
     border: 1px solid white;
     font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
     border-radius: 4px;
     color: white;
-    transition: all 600ms ease;
+    transition: 0.4s ease-in;
 }
-#logout_btn:hover{
+.header_btn:hover{
     background-color: red;
+}
+#prospectus_btn:hover{
+    background-color: white;
+    color: #1e293b;
 }
 #table,
 #table2,
@@ -178,7 +192,7 @@ span{
     padding-right: 40px;
 }
 th,
-tr{
+.table tr{
     background-color: rgba(218, 218, 218, 0.288);
     color: white;
 }
@@ -226,6 +240,159 @@ footer p{
     font-weight: 400;
     text-align: center;
     color: white; 
+}
+
+/*PROSPECTUS*/
+
+.prospectus_form {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0px auto;
+    width: 90%;
+    height: 80%;
+    overflow-y: auto;
+    color: #0f172a;
+    background-color: white;
+    border-radius: 10px;
+}
+#print_prospectus{
+    background-color: aquamarine;
+    color: blueviolet;
+    padding: 1px 7px;
+    border-radius: 5px;
+    position: absolute;
+    right: 45px;
+    top: 10px;
+    cursor: pointer;
+    transition: 0.4s ease-in;
+}
+#print_prospectus:hover{
+    background-color: #0f172a;
+    color: #f1f1f1;
+}
+#cancel-prospectus{
+    background-color: aquamarine;
+    color: blueviolet;
+    padding: 1px 7px;
+    border-radius: 5px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    transition: 0.4s ease-in;
+}
+#cancel-prospectus:hover{
+    background-color: red;
+    color: azure;
+}
+.header_container{
+    margin: 20px 20px 5px;
+}
+  
+  h1, h2, h3, h4, .info-container span {
+    text-align: center;
+    color: #0f172a;
+  }
+  
+  hr {
+    text-wrap: wrap;
+    border: none;
+    height: 1px;
+    color: #333;
+    background-color: #333;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  .info-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.info-item span {
+    font-size:1em;
+    font-family: verdana;
+}
+#student_id,
+#student_name,
+#academic_year{
+    font-weight: bolder;
+}
+
+  
+  .info-item h4 {
+    margin-bottom: 0;
+  }
+  
+  .info-item span {
+    display: block;
+    margin-top: 5px;
+    justify-content: space-between;
+    display: flex;
+  }
+  
+  .SecTrim {
+    page-break-after: always;
+  }
+
+  .FirstTrim {
+    display: inline-block;
+    width: 20%;
+    margin: 10px 0;
+    text-align: center;
+  }
+  .FirstYear{
+    margin-top: 20px;
+  }
+
+  .SubCode {
+    text-align: left;
+    width: 300%;
+  }
+  .prospectus_table{
+    width: 100%;
+  }
+  .prospectus_table tr {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f1f5f9;
+    align-items: center;
+}
+
+.prospectus_table td {
+  flex: 1 0 auto;
+  text-align: center;
+  color: #0f172a;
+}
+.prospectus_form::-webkit-scrollbar {
+    width: 10px;
+}
+.prospectus_form::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.prospectus_form::-webkit-scrollbar-thumb {
+    background: rgb(135, 135, 135);
+    border-radius: 5px;
+}
+.prospectus_form::-webkit-scrollbar-thumb:hover {
+    background: rgb(61, 60, 60);
+}
+.prospectus_table td:nth-child(1) {
+ text-align: left;
+}
+
+.prospectus_table td:nth-child(3) {
+  text-align: right;
 }
 @media (max-width: 1000px) {
     .user-info{

@@ -1,0 +1,70 @@
+
+/*
+@media only screen and (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    tr { border: 1px solid #ccc; }
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+      white-space: normal;
+      text-align:left;
+    }
+    td:before {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      text-align:left;
+      font-weight: bold;
+    }
+    td:nth-of-type(1):before { content: "Course Code"; }
+    td:nth-of-type(2):before { content: "Course Description"; }
+    td:nth-of-type(3):before { content: "Trimester"; }
+    td:nth-of-type(4):before { content: "Prelim Grade"; }
+    td:nth-of-type(5):before { content: "Midterm Grade"; }
+    td:nth-of-type(6):before { content: "Final Grade"; }
+    td:nth-of-type(7):before { content: "Remarks"; }
+    td:nth-of-type(8):before { content: "Section"; }
+    td:nth-of-type(9):before { content: "Instructor"; }
+    td:nth-of-type(10):before { content: "Credit Units"; }
+  }
+  */
+
+
+
+/*
+tr:nth-child(odd) {
+    background-color: var(--clr-slate-100);
+}
+
+tr {
+    transition: all 600ms ease;
+}
+
+tr:hover {
+    background-color: var(--clr-slate-200);
+}
+
+th {
+    background-color: #dbeafe;
+    font-family: 'Poppins', sans-serif;
+    color: var(--clr-slate-700);
+    
+}
+
+td {
+    font-family: 'Roboto', sans-serif;
+    color: var(--clr-slate-700);
+}
+*/
