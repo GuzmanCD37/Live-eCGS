@@ -137,15 +137,7 @@ input.onchange = (e) => {
                     newOption.value = allsubs[i]; 
                     selectElement.add(newOption); 
                 }  
-
-                if (email){
-                    alert('teacher email')
-                }else{
-                    alert('admin email')
-                }
             }
-
-            
         }
     
     viewQR.addEventListener('click', function(){
