@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.removeItem('adminID');
         
         // Redirect the user to a login page or a page confirming they've logged out
-        window.location.href = '../index.html'; // Redirect to the login page
+        window.location.href = '/Teacher/index.html'; // Redirect to the login page
     }
     function tchlogoutUser() {
         // Clear specific items from localStorage
@@ -36,12 +36,11 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.removeItem('adminID');
         
         // Redirect the user to a login page or a page confirming they've logged out
-        window.location.href = '../../index.html'; // Redirect to the login page
+        window.location.href = '/Teacher/index.html'; // Redirect to the login page
     }
     document.addEventListener("DOMContentLoaded", function() {
         // Get the logout link element
         var logoutLink = document.getElementById("logoutLink");
-        var tchlogoutLink = document.getElementById("tchlogoutLink");
 
         // Add click event listener to the logout link
         logoutLink.addEventListener("click", function(event) {
@@ -51,6 +50,11 @@ document.addEventListener("DOMContentLoaded", function() {
             // Call the logout function
             logoutUser();
         });
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get the logout link element
+        var tchlogoutLink = document.getElementById("tchlogoutLink");
 
          // Add click event listener to the tchlogout link
          tchlogoutLink.addEventListener("click", function(event) {
@@ -61,4 +65,5 @@ document.addEventListener("DOMContentLoaded", function() {
             tchlogoutUser();
         });
     });
+
 

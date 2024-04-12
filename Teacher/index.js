@@ -48,7 +48,6 @@ document.getElementById('teacher_btn').addEventListener('click', async () => {
         localStorage.setItem('teacher_name', teacher_name);
         localStorage.setItem('teacher_id', teacher_id);
         localStorage.setItem('accountType', accountType);
-
         //opening the teacher_UI
         window.close();
         window.open("Teacher_Workplace.html");
@@ -64,12 +63,15 @@ document.getElementById('teacher_btn').addEventListener('click', async () => {
       if(adminpass == upass.value){
         //assigning data from firestore to variable
         var adminID = admindocsnap.data().adminID;
+        var teacher_name = admindocsnap.data().TeacherName;
         var accountType = admindocsnap.data().accountType;
         //make it global to be able to access in different js file.
         localStorage.setItem('adminID', adminID);
+        localStorage.setItem('teacher_name', teacher_name);
         localStorage.setItem('accountType', accountType);
         //opening the admin_UI
-        window.open("/Admin/index.html");
+        window.open("/Teacher/Admin/index.html");
+                //window.open("Admin/index.html");
         window.close();
       }else{
         document.getElementById('pop-up-message').innerHTML="Please check your password";

@@ -370,7 +370,7 @@ function code12verified(){
 async function SaveRegistrationFrom(){
     const currentData =[];
     let subjectsData =[];
-    var ref = doc(db, "STUDENT_LIST","STUDENT_DATA", studID.value, password.value);
+    var ref = doc(db, "STUDENT_LIST",studID.value);
     const docsnap = await getDoc(ref);
     if(docsnap.exists()){
         currentData.push(docsnap.data().subjects);
@@ -387,12 +387,13 @@ async function SaveRegistrationFrom(){
         ShowPersonalData();
         }else{
             for (let i=0;i<checksub;i++){
-                var ref = doc(db, "STUDENT_LIST","STUDENT_DATA",studID.value,password.value);
+                var ref = doc(db, "STUDENT_LIST",studID.value);
                 setDoc( 
                 ref, {
                     studentID : studID.value,
                     name : fName.value + " " + mI.value +" "+ lName.value,
                     password : password.value,
+                    createdAt: new Date().toLocaleString(),
                     subjects : subjectsData.flat().filter((subject) => subject),
             })
             const collectionRef = client.collection("GENERATE_CODE");
@@ -430,7 +431,7 @@ async function checkingaccount(){
     }else if(lName.value==""){
         //do nothing
     }else{
-    var ref = doc(db, "STUDENT_LIST","STUDENT_DATA", studID.value, password.value);
+    var ref = doc(db, "STUDENT_LIST",studID.value);
     const docsnap = await getDoc(ref);
     if(docsnap.exists()){
         var pass = docsnap.data().password;
@@ -453,22 +454,44 @@ async function checkingaccount(){
         }
     }else{
         const collectionRef = client.collection("STUDENT_LIST");
-        const docRef = collectionRef.doc("STUDENT_DATA");
-        const inputSubcollectionName = studID.value;
-        // Fetch the subcollection and check its size
-        docRef.collection(inputSubcollectionName).get().then((querySnapshot) => {
-            if (querySnapshot.size > 0) {
-                document.getElementById('pop-up-message').innerHTML="Its seems that you already have an account, please check your password";
+        const docRef = collectionRef.doc(studID.value);
+
+        // Fetch the document and check if it exists
+        docRef.get().then((docSnapshot) => {
+            if (docSnapshot.exists) {
+                // Document exists, show error message
+                document.getElementById('pop-up-message').innerHTML = "It seems that you already have an account, please check your password";
                 document.getElementById('pop-up-message').style.textAlign = "center";
                 myPopup.classList.add("show");
-                password.value="";
-                fName.value="";
-                lName.value="";
-                mI.value="";
+                password.value = "";
+                fName.value = "";
+                lName.value = "";
+                mI.value = "";
             } else {
+                // Document doesn't exist, proceed to save registration
                 SaveRegistrationFrom();
             }
         });
+
+        /*
+            const collectionRef = client.collection("STUDENT_LIST");
+            const docRef = collectionRef.doc("STUDENT_DATA");
+            const inputSubcollectionName = studID.value;
+            // Fetch the subcollection and check its size
+            docRef.collection(inputSubcollectionName).get().then((querySnapshot) => {
+                if (querySnapshot.size > 0) {
+                    document.getElementById('pop-up-message').innerHTML="Its seems that you already have an account, please check your password";
+                    document.getElementById('pop-up-message').style.textAlign = "center";
+                    myPopup.classList.add("show");
+                    password.value="";
+                    fName.value="";
+                    lName.value="";
+                    mI.value="";
+                } else {
+                    SaveRegistrationFrom();
+                }
+            });
+            */
         }
     }
 }

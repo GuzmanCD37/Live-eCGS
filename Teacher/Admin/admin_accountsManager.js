@@ -29,11 +29,16 @@ const firebaseConfig = {
   
     //code to display details of selected row//
       var tchrtable = document.getElementById('tchrAccTable');
+      var studtable = document.getElementById('studAccTable');
 
       // Get the input fields
       var teacherIdInput = document.getElementById('teacher-id');
       var teacherNameInput = document.getElementById('teacher-name');
       var teacherPasswordInput = document.getElementById('teacher-password');
+
+      var studentIdInput = document.getElementById('student-id');
+      var studentNameInput = document.getElementById('student-name');
+      var studentPasswordInput = document.getElementById('student-password');
       
       // Add click event listener to table rows
       tchrtable.addEventListener('click', function(event) {
@@ -51,6 +56,23 @@ const firebaseConfig = {
           teacherPasswordInput.value = cells[2].innerText;
         }
       });
+      // Add click event listener to table rows
+      studtable.addEventListener('click', function(event) {
+        // Check if the clicked element is a table cell (td)
+        if (event.target.tagName.toLowerCase() === 'td') {
+          // Get the row of the clicked cell
+          var row = event.target.parentNode;
+          
+          // Get the cells of the row
+          var cells = row.getElementsByTagName('td');
+          
+          // Update input fields with values from the row
+          studentIdInput.value = cells[0].innerText;
+          studentNameInput.value = cells[1].innerText;
+          studentPasswordInput.value = cells[2].innerText;
+        }
+      });
+
 
 
     //Load Data in tables
@@ -59,7 +81,7 @@ async function displayStudents() {
     const tableBody = document.querySelector('#studAccTable tbody');
     tableBody.innerHTML = ''; // Clear existing rows
 
-    const querySnapshot = await getDocs(collection(db, 'TEACHER_LIST'));
+    const querySnapshot = await getDocs(collection(db, 'STUDENT_LIST'));
   
     if (querySnapshot) {
       querySnapshot.forEach((doc) => {
@@ -67,7 +89,7 @@ async function displayStudents() {
         const row = `
             <tr>
                 <td>${doc.id}</td>
-                <td>${account.TeacherName}</td>
+                <td>${account.name}</td>
                 <td>${account.password}</td>
                 <td>${account.createdAt}</td>
                 <td><input type="checkbox" data-id="${doc.id}" class="accountCheckbox"></td>
@@ -116,7 +138,6 @@ async function displayTeachers() {
     
 document.getElementById('deleteAllTchr_btn').addEventListener('click', async () => {
   try {
-    const tableBody = document.querySelector('#accountsTable tbody');
     const checkboxes = document.querySelectorAll('#tchrAccTable tbody input[type="checkbox"]:checked');
 
     checkboxes.forEach(async (checkbox) => {
@@ -132,11 +153,39 @@ document.getElementById('deleteAllTchr_btn').addEventListener('click', async () 
       alert(error);
   }
 });
+document.getElementById('deleteAllStud_btn').addEventListener('click', async () => {
+  try {
+    const checkboxes = document.querySelectorAll('#studAccTable tbody input[type="checkbox"]:checked');
+
+    checkboxes.forEach(async (checkbox) => {
+        const accountId = checkbox.dataset.id;
+        const sourceRef = doc(db, "STUDENT_LIST", accountId);
+        await deleteDoc(sourceRef);
+    });
+
+    document.getElementById('pop-up-message').innerHTML = "Accounts Deleted";
+    document.getElementById('pop-up-message').style.textAlign = "center";
+    myPopup.classList.add("show");
+  } catch (error) {
+      alert(error);
+  }
+});
 
 var count = 0;
 
 document.getElementById('selectAllTchr_btn').addEventListener('click', () => {
   const checkboxes = document.querySelectorAll('#tchrAccTable tbody input[type="checkbox"]');
+  
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = !checkbox.checked;
+    if (checkbox.checked) {
+      count++;
+    }
+  });
+  updateSelectedCount(count); // Update count after selecting all checkboxes
+});
+document.getElementById('selectAllStud_btn').addEventListener('click', () => {
+  const checkboxes = document.querySelectorAll('#studAccTable tbody input[type="checkbox"]');
   
   checkboxes.forEach((checkbox) => {
     checkbox.checked = !checkbox.checked;
@@ -167,6 +216,26 @@ document.getElementById('updateTchr_button').addEventListener('click', async () 
       alert(error)
   }
 });
+document.getElementById('updateStud_button').addEventListener('click', async () => {
+  try {
+      if(studentPasswordInput.value=="" || studentNameInput.value==""){
+        document.getElementById('pop-up-message').innerHTML = "Select an Account from the table first";
+        document.getElementById('pop-up-message').style.textAlign = "center";
+        myPopup.classList.add("show");
+      }else{
+          const ref = doc(db, "STUDENT_LIST", studentIdInput.value);
+          await updateDoc(ref, {
+              name : studentNameInput.value,
+              password : studentPasswordInput.value
+          });
+          document.getElementById('pop-up-message').innerHTML = studentIdInput.value + " Account Updated" ;
+          document.getElementById('pop-up-message').style.textAlign = "center";
+          myPopup.classList.add("show");
+      }
+  } catch (error) {
+      alert(error)
+  }
+});
 
 document.getElementById('deleteTchr_button').addEventListener('click', async () => {
   try {
@@ -181,6 +250,29 @@ document.getElementById('deleteTchr_button').addEventListener('click', async () 
         if(docsnap.exists()){  
           await deleteDoc(ref);
           document.getElementById('pop-up-message').innerHTML = teacherIdInput.value + " Account Deleted" ;
+          document.getElementById('pop-up-message').style.textAlign = "center";
+          myPopup.classList.add("show");
+        } else {
+            alert('Cannot delete, User not found')
+        }  
+    }
+  } catch (error) {
+      alert(error)   
+  }
+});
+document.getElementById('deleteStud_button').addEventListener('click', async () => {
+  try {
+        
+    if(studentIdInput.value=="" || studentPasswordInput.value=="" || studentNameInput.value==""){
+      document.getElementById('pop-up-message').innerHTML = "Select an Account from the table first";
+      document.getElementById('pop-up-message').style.textAlign = "center";
+      myPopup.classList.add("show");
+    }else{
+        const ref = doc(db, "STUDENT_LIST", studentIdInput.value);
+        const docsnap = await getDoc(ref);
+        if(docsnap.exists()){  
+          await deleteDoc(ref);
+          document.getElementById('pop-up-message').innerHTML = studentIdInput.value + " Account Deleted" ;
           document.getElementById('pop-up-message').style.textAlign = "center";
           myPopup.classList.add("show");
         } else {

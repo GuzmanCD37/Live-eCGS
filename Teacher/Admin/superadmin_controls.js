@@ -20,6 +20,12 @@ const firebaseConfig = {
   
   const db = getFirestore();
 
+  let password;
+    const correctPassword = ''; //just click Ok or Enter for now // Replace with your actual password
+    do {
+        password = prompt('Final security password:');
+    } while (password !== correctPassword);
+
   closePopup.addEventListener("click", function () {
     myPopup.classList.remove("show");
     //location.reload();
@@ -43,6 +49,7 @@ const firebaseConfig = {
             const row = `
               <tr>
                 <td>${doc.id}</td>
+                <td>${account.TeacherName}</td>
                 <td>${account.password}</td>
                 <td>${account.createdAt}</td>
                 <td><input type="checkbox" data-id="${doc.id}" class="accountCheckbox"></td>
@@ -64,7 +71,7 @@ const firebaseConfig = {
 
       // Get the input fields
       var adminIdInput = document.getElementById('admin-id');
-      var adminNameInput = document.getElementById('admin-name');
+      var teacherNameInput = document.getElementById('teacher-name');
       var adminPasswordInput = document.getElementById('admin-password');
       
       // Add click event listener to table rows
@@ -79,8 +86,8 @@ const firebaseConfig = {
           
           // Update input fields with values from the row
           adminIdInput.value = cells[0].innerText;
-          //adminNameInput.value = cells[1].innerText;
-          adminPasswordInput.value = cells[1].innerText;
+          teacherNameInput.value = cells[1].innerText;
+          adminPasswordInput.value = cells[2].innerText;
         }
       });
 
@@ -93,6 +100,7 @@ document.getElementById('update_button').addEventListener('click', async () => {
       }else{
           const ref = doc(db, "ADMIN_LIST", adminIdInput.value);
           await updateDoc(ref, {
+              TeacherName : teacherNameInput.value,
               password : adminPasswordInput.value
           });
           document.getElementById('pop-up-message').innerHTML = adminIdInput.value + " Account Updated" ;
@@ -151,6 +159,8 @@ document.getElementById('deleteAllAdm_btn').addEventListener('click', async () =
 document.getElementById('createAdm_btn').addEventListener('click', async () => {
   // Get input values
   const adminID = document.getElementById('adminID_add').value;
+  const teacherName = document.getElementById('teacherName_add').value;
+  const email = document.getElementById('email_add').value;
   const adminPass = document.getElementById('adminPass_add').value;
 
   if (adminID == "" &&  adminPass == "") {
@@ -158,15 +168,19 @@ document.getElementById('createAdm_btn').addEventListener('click', async () => {
       document.getElementById('pop-up-message').style.textAlign = "center";
       myPopup.classList.add("show");
   } else {
+    const listsub = ["SELECT SUBJECTS"];
       // Create a reference to the document
     const adminRef = doc(db, "ADMIN_LIST", adminID);
 
     // Set data for the admin document
     setDoc(adminRef, {
           adminID: adminID,
+          TeacherName: teacherName,
           password: adminPass,
           accountType: 'admin',
-          createdAt: new Date().toLocaleString()
+          Email_Address: email,
+          createdAt: new Date().toLocaleString(),
+          subjects : listsub
     })
     .then(() => {
 

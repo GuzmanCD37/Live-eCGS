@@ -31,6 +31,7 @@ const firebaseConfig = {
 
     const teacher_id = localStorage.getItem('teacher_id');
     const teacher_name = localStorage.getItem('teacher_name');
+    const adminID = localStorage.getItem('adminID');
     let codecontainer = [];
     let subjectsData =[];
     let pass,email;
@@ -137,7 +138,6 @@ input.onchange = (e) => {
                     newOption.value = allsubs[i]; 
                     selectElement.add(newOption); 
                 }  
-            }
         }
     
     viewQR.addEventListener('click', function(){

@@ -36,7 +36,7 @@ const firebaseConfig = {
         document.getElementById('pop-up-message').style.textAlign = "center";
         myPopup.classList.add("show"); 
     }else{
-    var ref = doc(db, "STUDENT_LIST","STUDENT_DATA", uname.value, upass.value);
+    var ref = doc(db, "STUDENT_LIST", uname.value);
     const docsnap = await getDoc(ref);
     const UserData =[];
   //if the value is true then assign the collect data ('password') to a variable pass

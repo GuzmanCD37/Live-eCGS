@@ -35,15 +35,19 @@ const firebaseConfig = {
   try {
     const studentsub =[];
     const userData = JSON.parse(storedData); 
+    console.log(JSON.stringify(userData))
     userData.forEach((studentdata) => {
+        console.log(studentdata.student_id)
       student_id = studentdata.student_id;
       student_pass = studentdata.student_pass;
       tri = studentdata.tri;
       studentsub.push(studentdata.subs);
       studentsub.forEach((subject) => {
         subs = [...subject];
+        });
     });
-    });
+
+    //conole.log(studentsub)
   } catch (error) {
     console.error('Error accessing data:', error);
   }
@@ -73,6 +77,7 @@ const firebaseConfig = {
     
     unknowndata.push({ ...data});
     unknowndata.forEach((studentdata) => {
+        console.log(studentdata.YEAR_LEVEL)
         // Organize data by trimester
         if (studentdata.TRIMESTER === "1st" && studentdata.YEAR_LEVEL === year_level.value) {
             firsttrimester.push({ ...studentdata });

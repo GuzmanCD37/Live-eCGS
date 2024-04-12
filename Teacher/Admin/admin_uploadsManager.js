@@ -36,7 +36,7 @@ const firebaseConfig = {
 
     
     let password;
-    const correctPassword = 'hackaton2023'; // Replace with your actual password
+    const correctPassword = ''; //just click Ok or Enter for now // Replace with your actual password
     do {
         password = prompt('Final security password:');
     } while (password !== correctPassword);
@@ -59,7 +59,7 @@ rows.forEach((row) => {
 
     function getData(){
     const extractData =[];
-    db.collection("PENDING-STUD-DATA").orderBy('createdAt').get().then((querySnapshot) => {     
+    db.collection("PENDING-STUD-DATA").orderBy('createdAt', 'desc').get().then((querySnapshot) => {     
       
       querySnapshot.forEach((studentdata) => {
             const data = studentdata.data();

@@ -30,7 +30,7 @@
             </a>
           </li>
           <li>
-            <a href="../Teacher_Workplace.html">
+            <a href="Teacher_Workplace.html">
               <i class="fas fa-file-upload" title="Upload Grades"></i>
               <span>Upload Grades</span>
             </a>
@@ -73,9 +73,18 @@
   <main class="main-container" >
 
 
-      <section class="student-wrapper" style="display: none;">
+      <section class="student-wrapper" style="display: flex;">
         <div class="main-panel panel-container" id = "studentsContainer">
           <h3>Student Accounts</h3>
+          <br>
+          <div class="controls-wrapper">
+            <div class="table-controls-buttons">
+              <!-- 
+              <p id="selectCount">0 selected</p>-->
+              <button class="btn-solid red" id="deleteAllStud_btn" >Delete All Selected</button>
+            </div>
+          </div>
+
             <div class="table-container overflow">
               <table id="studAccTable">
                 <thead>
@@ -84,7 +93,10 @@
                     <th style="width: 200px;">Name</th>
                     <th>Password</th>
                     <th>CreatedAt</th>
-                    <th style="width: 20px;"><input type="checkbox" id="selectAllTchr" ></th>
+                    <th style="width: 38px;"><button class="btn-ghost" id="selectAllStud_btn" style="width: 10px; margin-right: -9px;" title="Select All">
+                            <i class="fas fa-tasks" style="text-align: center; margin-left: -8px; font-size: larger;"></i>
+                        </button>
+                    </th>
                   </tr>
                 </thead>
                 <tbody id="student-table-body">
@@ -98,34 +110,32 @@
 
         <div class="side-panel panel-container">
           
-          <div class="form-container">
-            <button class="btn-solid full mb-lg" id="selectAllAcc_button" style="margin-bottom: 10px;">Select All</button>
-            <button class="btn-solid full mb-lg" id="delete_button" style="margin-bottom: 10px; background: rgb(197, 0, 0);" >Delete</button>
-          </div>
+          
           <br>
           <span class="labels mb-lg">Update User</span>
           
           <div class="form-container">
             <span class="sub-labels">User ID: </span>
             <span class="input-wrapper">
-            <input class="inputs" type="text" id="student-id" placeholder="Student ID">
+            <input class="inputs" type="text" id="student-id" placeholder="Student ID" disabled>
             </span>
 
             <span class="sub-labels">Name: </span>
             <span class="input-wrapper">
-              <input class="inputs" type="text" id="name" placeholder="Name" disabled>
-              <button class="btn-ghost" id="edit"><i class="far fa-edit"></i></button>
+              <input class="inputs" type="text" id="student-name" placeholder="Name" disabled>
+              <button class="btn-ghost" id="editStudName" onclick="toggleInput('student-name')"><i class="far fa-edit"></i></button>
             </span>
             
             <span class="sub-labels">Password: </span>
             <span class="input-wrapper">
-              <input class="inputs" type="password" id="password" placeholder="Password">
-              <button class="btn-ghost" id="update_button"><i class="far fa-edit"></i></button>
+              <input class="inputs" type="text" id="student-password" placeholder="Password" disabled>
+              <button class="btn-ghost" id="editStudPass" onclick="toggleInput('student-password')"><i class="far fa-edit"></i></button>
+              </input>
             </span>
             
             <div class="form-controls">
-              <button class="btn-solid full mb-lg" id="update_button" style="margin-bottom: 10px;">Update</button>
-              <button class="btn-solid full mb-lg" id="delete_button" style="background: red;">Delete Account</button>
+              <button class="btn-solid full mb-lg" id="updateStud_button" style="margin-bottom: 10px;">Update</button>
+              <button class="btn-solid full mb-lg" id="deleteStud_button" style="background: red;">Delete Account</button>
             </div>
           </div>   
         </div>
@@ -137,7 +147,8 @@
           <br>
           <div class="controls-wrapper">
             <div class="table-controls-buttons">
-              <p id="selectCount">0 selected</p>
+              <!--
+              <p id="selectCount">0 selected</p>-->
               <button class="btn-solid red" id="deleteAllTchr_btn" >Delete All Selected</button>
             </div>
           </div>
@@ -165,7 +176,7 @@
           
           
           <br>
-          <span class="labels mb-lg">Update User</span>
+          <span class="labels mb-lg">Update Teacher</span>
           
           <div class="form-container">
             <span class="sub-labels">User ID: </span>

@@ -30,7 +30,7 @@
             </a>
           </li>
           <li>
-            <a href="../Teacher_Workplace.html">
+            <a href="Teacher_Workplace.html">
               <i class="fas fa-file-upload" title="Upload Grades"></i>
               <span>Upload Grades</span>
             </a>
@@ -86,6 +86,7 @@
                 <thead>
                   <tr>
                     <th style="width: 60px;">AdminID</th>
+                    <th>Name</th>
                     <th>Password</th>
                     <th>Created At</th>
                     <th style="width: 38px;"><button class="btn-ghost" id="selectAllAdm_btn" style="width: 10px; margin-right: -9px;" title="Select All">
@@ -110,13 +111,13 @@
             <input class="inputs" type="text" id="admin-id" placeholder="Admin ID" disabled>
             </span>
 
-            <!--
+            
             <span class="sub-labels">Name: </span>
             <span class="input-wrapper">
-              <input class="inputs" type="text" id="admin-name" placeholder="Name" >
-              <button class="btn-ghost" id="editAdminName" onclick="toggleInput('admin-name')"><i class="far fa-edit"></i></button>
+              <input class="inputs" type="text" id="teacher-name" placeholder="Name" disabled>
+              <button class="btn-ghost" id="editTchrName" onclick="toggleInput('teacher-name')"><i class="far fa-edit"></i></button>
             </span>
-            -->
+            
             <span class="sub-labels">Password: </span>
             <span class="input-wrapper">
               <input class="inputs" type="text" id="admin-password" placeholder="Password" disabled>
@@ -139,6 +140,14 @@
                       <span class="sub-labels">Admin ID: </span>
                       <span class="input-wrapper">
                         <input class="inputs" type="text" id="adminID_add" placeholder="Admin ID">
+                      </span>
+                      <span class="sub-labels">Teacher Name: </span>
+                      <span class="input-wrapper">
+                        <input class="inputs" type="text" id="teacherName_add" placeholder="Teacher Name">
+                      </span>
+                      <span class="sub-labels">Email: </span>
+                      <span class="input-wrapper">
+                        <input class="inputs" type="text" id="email_add" placeholder="Email">
                       </span>
                       <span class="sub-labels">Password: </span>
                       <span class="input-wrapper">
