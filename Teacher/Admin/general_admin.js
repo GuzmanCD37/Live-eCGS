@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.removeItem('adminID');
         
         // Redirect the user to a login page or a page confirming they've logged out
-        window.location.href = '../Teacher/index.html'; // Redirect to the login page
+        window.location.href = '../index.html'; // Redirect to the login page
     }
     function tchlogoutUser() {
         // Clear specific items from localStorage
