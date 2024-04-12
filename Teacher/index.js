@@ -71,7 +71,6 @@ document.getElementById('teacher_btn').addEventListener('click', async () => {
         localStorage.setItem('accountType', accountType);
         //opening the admin_UI
         window.open("Admin/index.html");
-                //window.open("Admin/index.html");
         window.close();
       }else{
         document.getElementById('pop-up-message').innerHTML="Please check your password";
