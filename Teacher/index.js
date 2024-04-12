@@ -70,7 +70,7 @@ document.getElementById('teacher_btn').addEventListener('click', async () => {
         localStorage.setItem('teacher_name', teacher_name);
         localStorage.setItem('accountType', accountType);
         //opening the admin_UI
-        window.open("Admin/index.html");
+        window.open("Live-eCGS/Admin/index.html");
                 //window.open("Admin/index.html");
         window.close();
       }else{
